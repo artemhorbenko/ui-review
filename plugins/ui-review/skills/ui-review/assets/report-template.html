@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="uk">
+<html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>UI-рев'ю: Tallyo (демо)</title>
+<title>UI review: Tallyo (demo)</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Sofia+Sans+Condensed:wght@600;800&family=Sofia+Sans:wght@400;600;700&display=swap" rel="stylesheet">
@@ -168,9 +168,9 @@ footer{font-size:13px;color:var(--mute)}
 .frame img{display:block;width:100%;height:100%;object-fit:fill;border-radius:5px}
 .frame.ph{background:repeating-linear-gradient(135deg,var(--soft) 0 10px,transparent 10px 18px);display:grid;place-items:center}
 .phl{font-size:13px;color:var(--mute);background:var(--bg);padding:4px 10px;border-radius:99px;border:1px dashed var(--line)}
-.mbox{position:absolute;border:2.5px solid var(--ink);border-radius:4px;box-shadow:0 0 0 2px color-mix(in srgb,var(--bg) 70%,transparent);text-decoration:none}
+.mbox{position:absolute;pointer-events:none;border:2.5px solid var(--ink);border-radius:4px;box-shadow:0 0 0 2px color-mix(in srgb,var(--bg) 70%,transparent);text-decoration:none}
 .mbox.hot{border-color:var(--red)}
-.mbox span{position:absolute;left:-12px;top:-12px;min-width:24px;height:24px;padding:0 5px;border-radius:99px;background:var(--ink);color:var(--bg);font:800 13px/24px "Sofia Sans Condensed",sans-serif;text-align:center;box-shadow:0 0 0 2px var(--bg)}
+.mbox span{pointer-events:auto;cursor:pointer;position:absolute;left:-12px;top:-12px;min-width:24px;height:24px;padding:0 5px;border-radius:99px;background:var(--ink);color:var(--bg);font:800 13px/24px "Sofia Sans Condensed",sans-serif;text-align:center;box-shadow:0 0 0 2px var(--bg)}
 .mbox.hot span{background:var(--red);color:#fff}
 .mbox:hover,.mbox:focus-visible{outline:3px solid color-mix(in srgb,var(--red) 40%,transparent);outline-offset:2px}
 .shot figcaption{font-size:14px;color:var(--mute);margin-top:10px;overflow-wrap:anywhere}
@@ -207,17 +207,18 @@ code{font:13px/1.4 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;backgrou
 <body>
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
 <symbol id="i-hier" viewBox="0 0 24 24"><path d="M4 6h16M4 12h10M4 18h6"/></symbol>
+<symbol id="i-cta" viewBox="0 0 24 24"><path d="M5 3l12 7-5 1.5L9.5 17z"/><path d="M13 13l5 5"/></symbol>
+<symbol id="i-img" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="9" cy="10" r="1.6"/><path d="M21 16l-5-5-8 8"/></symbol>
 <symbol id="i-grid" viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="1"/><path d="M4 10h16M10 4v16"/></symbol>
+<symbol id="i-space" viewBox="0 0 24 24"><path d="M4 4v16M20 4v16M8 12h8M10 10l-2 2 2 2M14 10l2 2-2 2"/></symbol>
 <symbol id="i-type" viewBox="0 0 24 24"><path d="M5 7V5h14v2M12 5v14M9 19h6"/></symbol>
 <symbol id="i-color" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><path d="M12 4a8 8 0 0 1 0 16z" fill="currentColor"/></symbol>
-<symbol id="i-heur" viewBox="0 0 24 24"><path d="M9 18h6M10 21h4M12 3a6 6 0 0 0-3.5 10.9V16h7v-2.1A6 6 0 0 0 12 3z"/></symbol>
-<symbol id="i-nav" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M15.5 8.5l-2 5-5 2 2-5z"/></symbol>
-<symbol id="i-form" viewBox="0 0 24 24"><rect x="3" y="7" width="18" height="10" rx="2"/><path d="M7 10v4"/></symbol>
-<symbol id="i-state" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M8 12.5l2.5 2.5 5-5"/></symbol>
-<symbol id="i-a11y" viewBox="0 0 24 24"><circle cx="12" cy="5" r="1.6"/><path d="M5 8.5l7 1.5 7-1.5M12 10v4l-3 6M12 14l3 6"/></symbol>
-<symbol id="i-resp" viewBox="0 0 24 24"><rect x="3" y="5" width="12" height="10" rx="1"/><path d="M6 19h6"/><rect x="16" y="9" width="5" height="11" rx="1"/></symbol>
-<symbol id="i-copy" viewBox="0 0 24 24"><path d="M4 5h16v11H9l-5 4z"/><path d="M8 9h8M8 12h5"/></symbol>
+<symbol id="i-dark" viewBox="0 0 24 24"><path d="M20 14.5A8 8 0 1 1 9.5 4a6.5 6.5 0 0 0 10.5 10.5z"/></symbol>
+<symbol id="i-brand" viewBox="0 0 24 24"><path d="M12 3l2.6 5.3 5.9.9-4.3 4.1 1 5.8L12 16.4 6.8 19.1l1-5.8L3.5 9.2l5.9-.9z"/></symbol>
 <symbol id="i-sys" viewBox="0 0 24 24"><path d="M12 3l9 5-9 5-9-5z"/><path d="M3 13l9 5 9-5"/></symbol>
+<symbol id="i-resp" viewBox="0 0 24 24"><rect x="3" y="5" width="12" height="10" rx="1"/><path d="M6 19h6"/><rect x="16" y="9" width="5" height="11" rx="1"/></symbol>
+<symbol id="i-motion" viewBox="0 0 24 24"><path d="M3 12h11M10 8l4 4-4 4"/><path d="M18 6v12M21 9v6"/></symbol>
+<symbol id="i-perf" viewBox="0 0 24 24"><path d="M4 17a8 8 0 1 1 16 0"/><path d="M12 17l4-5"/></symbol>
 </svg>
 
 <header class="band"><div class="wrap">
@@ -309,367 +310,377 @@ code{font:13px/1.4 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;backgrou
 
 <script type="application/json" id="audit">
 {
- "lang": "uk",
- "title": "UI-рев'ю: Tallyo (демо)",
+ "lang": "en",
+ "title": "UI review: Tallyo (demo)",
  "text": {
-  "label": "Демо-рев'ю: «Tallyo» — вигаданий застосунок для рахунків; скріншоти й виміри справжні, зняті з демо-сторінки",
-  "headline": "Жодне поле реєстрації не має підпису, а пароль видно [[відкритим текстом]]",
-  "lead": "Сторінка виглядає охайно, але єдина важлива задача — реєстрація — не працює для користувачів скрінрідерів і клавіатури та показує пароль на екрані. Спершу виправити форму й невидимий фокус; контраст і телефон — дешеві виправлення, вони йдуть далі.",
-  "checksNote": "Виміряно inspect_ui.py на 3 скріншотах: головна на desktop 1280×800 і phone 390×844, ціни на desktop. Риска позначає ціль. Фокус клавіатури перевірено проходом Tab по обох сторінках на desktop.",
-  "lensesH": "Найслабші лінзи — доступність, форми й адаптивність",
-  "lensesP": "Оцінка 0–100 показує, наскільки добре інтерфейс справляється з кожною лінзою. Нижче 40 — великі проблеми на перевірених екранах.",
-  "shotsH": "14 проблем, позначених там, де вони є",
-  "shotsP": "Кожна пронумерована рамка — проблема з таблиці; клікніть, щоб перейти до її плану. Червоні рамки — критичні або з топ-3.",
-  "screensH": "Шлях реєстрації ламається на формі, а не на лендингу",
-  "screensP": "Головна задача від першого візиту до акаунта, як її перевірено на desktop і телефоні.",
-  "matrixH": "{qw} швидких перемог із високим впливом і малими зусиллями",
-  "matrixP": "Кожна точка — проблема з таблиці нижче. Чорні — виправлення поточного UI; червоні з обводкою — переосмислення, яке треба перевірити тестом.",
-  "opsH": "{n} проблем за ICE, з них {crit} критичні",
-  "opsP": "ICE = вплив × впевненість × легкість (кожне 1–10). Серйозність (1–4) каже, наскільки погано; ICE — що робити першим. Перші три виділено.",
-  "nextH": "Три виправлення на цей спринт",
-  "nextP": "У кожного є гіпотеза, метрика успіху й найдешевший спосіб перевірки.",
-  "planH": "Повний план: усі {n} виправлень із селекторами й цільовими значеннями",
-  "planP": "Для кожної проблеми: чому вона тут, де вона (сторінка, в'юпорт, селектор, скріншот), поточні й цільові значення, кроки, метрика, зусилля й ризик. Для перших трьох — ще альтернативи, експеримент із порогом і pre-mortem.",
-  "dataH": "Впевненість досить висока: виміри прямі, але поведінкових даних немає",
-  "dataP": "Усі значення взято з самої сторінки. Без аналітики й записів сесій вплив на реєстрації оцінено, а проблема станів (#9) лишається гіпотезою.",
+  "label": "Demo review: “Tallyo” is a fictional invoicing app; screenshots and measurements are real, taken from the demo pages in evals/fixtures/demo-site",
+  "headline": "Keyboard focus is invisible on [[all 32]] controls, and the phone page scrolls sideways",
+  "lead": "The landing page looks tidy at 1280 px but breaks down at the edges: focus rings are removed, grey text fails contrast, a late promo bar shifts the page, and below 1280 the feature strip pushes the page to 1,096 px wide. Most fixes are one-line CSS changes.",
+  "checksNote": "Measured with inspect_ui.py at 1280×800, 768×1024 and 360×780 on home, and at 1280 on pricing. Focus was checked by tabbing through both pages at 1280. The tick marks the target.",
+  "lensesH": "Colour, responsive behaviour and spacing are the weakest lenses",
+  "lensesP": "A score of 0–100 shows how well the interface handles each lens on the screens checked. Below 40 means big problems. There is no dark mode (no prefers-color-scheme rules); that lens is scored on the light theme alone.",
+  "shotsH": "16 issues, marked at three widths",
+  "shotsP": "Each numbered box is an issue from the table; click its number to jump to the plan. Red boxes are critical or in the top 3.",
+  "screensH": "The page holds at 1280 and comes apart at 768 and 360",
+  "screensP": "The home page at three widths, then pricing.",
+  "matrixH": "{qw} quick wins with high impact and low effort",
+  "matrixP": "Each dot is an issue. Black dots fix the current UI; outlined red dots are rethinks to test first.",
+  "opsH": "{n} issues ranked by ICE, {crit} critical",
+  "opsP": "ICE = impact × confidence × ease (each 1–10). Severity (1–4) says how bad; ICE says what to do first.",
+  "nextH": "Three fixes for this sprint",
+  "nextP": "Each has a hypothesis, a success metric and the cheapest way to check it.",
+  "planH": "Full plan: all {n} fixes with selectors, widths and target values",
+  "planP": "For every issue: why it is here, where (page, width, selector, screenshot mark), current and target values, steps, metric, effort and risk. The top three also list alternatives, an experiment with a threshold and a pre-mortem.",
+  "dataH": "Confidence is fairly high: every value was measured, but there is no behaviour data",
+  "dataP": "Out of scope and left to ux-review: the sign-up fields use placeholders instead of labels, the password field is type=text, and the button says “Submit”. The pricing countdown that restarts on every load is a trust issue for ux-review and product-lens-audit, not a UI one.",
   "how": [
-   "Перевірено доступні джерела й поставлено 4 питання, кожне можна було пропустити (2 пропущено, припущення записано).",
-   "Відкрито головну й сторінку цін на desktop і телефоні; inspect_ui.py зняв скріншоти, рамки елементів, обчислені стилі й автоматичні перевірки; обидві сторінки пройдено клавішею Tab.",
-   "Пройдено всі 12 лінз; кожна знахідка позначена як «спостережено» або «гіпотеза» і, де можна, посилається на критерій WCAG чи евристику.",
-   "Оцінено серйозність і ICE, для топ-3 порівняно альтернативи, задано пороги й зроблено pre-mortem; потім той самий аудит записано як hands-off файл для AI-агента."
+   "Checked sources: a shell with Playwright that reaches the pages; questions skipped, assumptions noted.",
+   "Ran inspect_ui.py on home at 1280, 768 and 360 and on pricing at 1280: screenshots, element boxes, computed styles, contrast, scale, tap targets, dark-mode and reduced-motion emulation, CLS, and a Tab walk for focus.",
+   "Went through the 13 UI lenses; every finding is labelled observed or hypothesis and cites a WCAG criterion where one applies.",
+   "Scored severity and ICE, compared alternatives for the top three, ran a pre-mortem, built both outputs, render-checked the report and traced every number back to the inspect output."
   ],
-  "footer": "демо-дані: вигаданий продукт, справжні виміри демо-сторінки"
+  "footer": "demo data: fictional product, real measurements of the demo pages"
  },
  "kpis": [
   {
    "v": "{health}/100",
-   "l": "Здоров'я UI за 12 лінзами"
+   "l": "UI health across 13 lenses"
   },
   {
-   "v": "0 з 31",
-   "l": "кроків клавіатури з видимим фокусом",
+   "v": "0 of 32",
+   "l": "keyboard stops with a visible focus",
    "hot": true,
-   "src": "inspect_ui.py (автоматичні перевірки)"
+   "src": "inspect_ui.py"
   },
   {
-   "v": "37",
-   "l": "текстових елементів нижче контрасту WCAG AA",
-   "src": "inspect_ui.py (автоматичні перевірки)"
+   "v": "1,096 px",
+   "l": "page width at 360 px (sideways scroll)",
+   "src": "inspect_ui.py"
   },
   {
    "v": "{crit}",
-   "l": "критичні проблеми"
+   "l": "critical issue"
   }
  ],
  "checks": [
   {
-   "l": "Поля форми з підписом",
+   "l": "Visible keyboard focus",
    "v": 0,
-   "b": 2,
+   "b": 32,
    "t": 100,
-   "sub": "реєстрація, обидва в'юпорти",
-   "src": "inspect_ui.py (автоматичні перевірки)",
+   "sub": "home + pricing, 1280",
+   "src": "inspect_ui.py",
    "hot": true
   },
   {
-   "l": "Видимий фокус клавіатури",
-   "v": 0,
-   "b": 31,
+   "l": "Text contrast ≥ WCAG AA",
+   "v": 89,
+   "b": 136,
    "t": 100,
-   "sub": "головна + ціни, desktop",
-   "src": "inspect_ui.py (автоматичні перевірки)",
-   "hot": true
+   "sub": "home at 3 widths + pricing",
+   "src": "inspect_ui.py"
   },
   {
-   "l": "Контраст тексту ≥ WCAG AA",
-   "v": 60,
-   "b": 97,
+   "l": "Text ≥ 12 px",
+   "v": 111,
+   "b": 136,
    "t": 100,
-   "sub": "3 скріншоти",
-   "src": "inspect_ui.py (автоматичні перевірки)"
+   "sub": "home at 3 widths + pricing",
+   "src": "inspect_ui.py"
   },
   {
-   "l": "Зони дотику ≥ 24 px",
-   "v": 8,
-   "b": 17,
+   "l": "Tap targets ≥ 24 px",
+   "v": 15,
+   "b": 37,
    "t": 100,
-   "sub": "головна, телефон",
-   "src": "inspect_ui.py (автоматичні перевірки)"
+   "sub": "home, 768 + 360",
+   "src": "inspect_ui.py"
   },
   {
-   "l": "Зони дотику ≥ 44 px",
-   "v": 2,
-   "b": 17,
-   "t": 90,
-   "sub": "головна, телефон",
-   "src": "inspect_ui.py (автоматичні перевірки)"
-  },
-  {
-   "l": "Текст ≥ 12 px",
-   "v": 80,
-   "b": 97,
+   "l": "Loads with CLS ≤ 0.1",
+   "v": 3,
+   "b": 4,
    "t": 100,
-   "sub": "3 скріншоти",
-   "src": "inspect_ui.py (автоматичні перевірки)"
+   "sub": "home at 3 widths + pricing",
+   "src": "inspect_ui.py"
   }
  ],
  "maturity": {
   "cur": 1,
-  "note": "На перший погляд сторінки цілісні, тож для користувача з мишею й добрим зором UI «Придатний». «Цілісним» він стане, коли форма й базова клавіатурна доступність працюватимуть для всіх, а чотири форми кнопок стануть однією."
+  "note": "Usable at 1280 for a mouse user. Not yet Consistent: four button shapes, eleven font sizes, eleven off-scale spacing values, and the layout breaks at 768 and 360."
  },
  "lenses": [
   {
-   "k": "Ієрархія",
-   "n": "Візуальна ієрархія",
+   "k": "Hierarchy",
+   "n": "Visual hierarchy",
    "i": "hier",
    "g": "look",
-   "s": 52
-  },
-  {
-   "k": "Сітка",
-   "n": "Сітка й відступи",
-   "i": "grid",
-   "g": "look",
-   "s": 58
-  },
-  {
-   "k": "Типографіка",
-   "i": "type",
-   "g": "look",
-   "s": 55
-  },
-  {
-   "k": "Колір",
-   "n": "Колір і контраст",
-   "i": "color",
-   "g": "look",
-   "s": 38
-  },
-  {
-   "k": "Евристики",
-   "n": "Евристики юзабіліті",
-   "i": "heur",
-   "g": "use",
    "s": 50
   },
   {
-   "k": "Навігація",
-   "i": "nav",
-   "g": "use",
-   "s": 62
-  },
-  {
-   "k": "Форми",
-   "i": "form",
-   "g": "use",
-   "s": 18
-  },
-  {
-   "k": "Стани",
-   "n": "Стани й зворотний зв'язок",
-   "i": "state",
-   "g": "use",
-   "s": 35
-  },
-  {
-   "k": "A11y",
-   "n": "Доступність",
-   "i": "a11y",
-   "g": "reach",
-   "s": 15
-  },
-  {
-   "k": "Адаптив",
-   "n": "Адаптивність і дотик",
-   "i": "resp",
-   "g": "reach",
-   "s": 30
-  },
-  {
-   "k": "Тексти",
-   "n": "Мікрокопі й довіра",
-   "i": "copy",
-   "g": "words",
+   "k": "CTA",
+   "n": "CTA prominence",
+   "i": "cta",
+   "g": "look",
    "s": 45
   },
   {
-   "k": "Система",
-   "n": "Цілісність дизайн-системи",
+   "k": "Imagery",
+   "n": "Imagery and icons",
+   "i": "img",
+   "g": "look",
+   "s": 45
+  },
+  {
+   "k": "Grid",
+   "n": "Layout and grid",
+   "i": "grid",
+   "g": "structure",
+   "s": 58
+  },
+  {
+   "k": "Spacing",
+   "n": "Spacing rhythm",
+   "i": "space",
+   "g": "structure",
+   "s": 40
+  },
+  {
+   "k": "Type",
+   "n": "Typography scale",
+   "i": "type",
+   "g": "structure",
+   "s": 45
+  },
+  {
+   "k": "Contrast",
+   "n": "Colour and contrast",
+   "i": "color",
+   "g": "colour",
+   "s": 28
+  },
+  {
+   "k": "Dark",
+   "n": "Dark mode",
+   "i": "dark",
+   "g": "colour",
+   "s": 50
+  },
+  {
+   "k": "Brand",
+   "n": "Brand coherence",
+   "i": "brand",
+   "g": "colour",
+   "s": 55
+  },
+  {
+   "k": "System",
+   "n": "Design-system consistency",
    "i": "sys",
    "g": "system",
-   "s": 42
+   "s": 45
+  },
+  {
+   "k": "Responsive",
+   "n": "Responsive behaviour",
+   "i": "resp",
+   "g": "behave",
+   "s": 32
+  },
+  {
+   "k": "Motion",
+   "i": "motion",
+   "g": "behave",
+   "s": 45
+  },
+  {
+   "k": "Perf",
+   "n": "Perceived performance",
+   "i": "perf",
+   "g": "behave",
+   "s": 55
   }
  ],
  "screens": [
   {
-   "t": "Лендинг, верх",
-   "w": "desktop 1280×800",
+   "t": "Home",
+   "w": "1280 px",
    "st": "warn",
-   "p": "Дві однаково вагомі CTA плюс форма",
-   "shot": "home-desktop"
+   "p": "Two CTAs compete; grey text fails",
+   "shot": "home-1280"
   },
   {
-   "t": "Лендинг, верх",
-   "w": "phone 390×844",
-   "st": "warn",
-   "p": "Сторінка прокручується вбік (1 096 px)",
-   "shot": "home-phone"
-  },
-  {
-   "t": "Форма реєстрації",
-   "w": "обидва",
+   "t": "Home",
+   "w": "768 px",
    "st": "bad",
-   "p": "Немає підписів; пароль видно текстом",
-   "shot": "home-desktop"
+   "p": "Page 1,117 px wide; 4-line H1",
+   "shot": "home-768"
   },
   {
-   "t": "Надіслати",
-   "w": "обидва",
+   "t": "Home",
+   "w": "360 px",
    "st": "bad",
-   "p": "Невидимий фокус; реакції не видно",
-   "shot": "home-phone"
+   "p": "Sideways scroll; promo shifts the page",
+   "shot": "home-360"
   },
   {
-   "t": "Ціни",
-   "w": "desktop 1280×800",
+   "t": "Pricing",
+   "w": "1280 px",
    "st": "warn",
-   "p": "Відлік скидається при кожному завантаженні",
-   "shot": "pricing-desktop"
-  },
-  {
-   "t": "Вибір тарифу",
-   "w": "desktop 1280×800",
-   "st": "ok",
-   "p": "Популярний тариф добре виділено",
-   "shot": "pricing-desktop"
+   "p": "Off-palette orange; 11 px VAT note",
+   "shot": "pricing-1280"
   }
  ],
  "shots": [
   {
-   "id": "home-desktop",
-   "src": "demo/home-desktop.jpg",
-   "cap": "Головна",
+   "id": "home-1280",
+   "src": "demo/home-1280.jpg",
+   "cap": "Home",
    "url": "index.html",
-   "vp": "desktop 1280×800",
+   "vp": "1280×800",
    "w": 1280,
    "h": 800,
    "marks": [
     {
-     "n": 1,
-     "x": 57.6,
-     "y": 27.2,
-     "w": 36.3,
-     "h": 11.3
-    },
-    {
      "n": 2,
      "x": 4.5,
-     "y": 29.3,
+     "y": 40.3,
      "w": 45.2,
      "h": 9.2
     },
     {
      "n": 3,
      "x": 4.5,
-     "y": 41.8,
+     "y": 52.7,
      "w": 27,
      "h": 5.7
     },
     {
-     "n": 5,
-     "x": 91.5,
-     "y": 1.6,
-     "w": 5.6,
+     "n": 1,
+     "x": 67.9,
+     "y": 12.6,
+     "w": 29.2,
      "h": 4.3
     },
     {
-     "n": 6,
-     "x": 34.5,
-     "y": 84.5,
-     "w": 31,
-     "h": 9.5,
-     "note": "іконки соцмереж 18×18, посилання футера 14 px заввишки"
-    },
-    {
-     "n": 8,
-     "x": 57.6,
-     "y": 39.7,
-     "w": 36.3,
-     "h": 5.4
-    },
-    {
-     "n": 11,
-     "x": 0.5,
-     "y": 58.7,
-     "w": 99,
-     "h": 6.9
-    }
-   ]
-  },
-  {
-   "id": "home-phone",
-   "src": "demo/home-phone.jpg",
-   "cap": "Головна",
-   "url": "index.html",
-   "vp": "phone 390×844",
-   "w": 390,
-   "h": 844,
-   "marks": [
-    {
-     "n": 14,
-     "x": 4.1,
-     "y": 53.6,
-     "w": 91.8,
-     "h": 36.7
-    },
-    {
-     "n": 1,
-     "x": 9.7,
-     "y": 64.4,
-     "w": 80.5,
-     "h": 10.6
-    },
-    {
-     "n": 3,
-     "x": 4.1,
-     "y": 39.5,
-     "w": 91.8,
-     "h": 5.4
-    },
-    {
-     "n": 4,
-     "x": 0.5,
-     "y": 93.6,
-     "w": 99,
-     "h": 5.6
-    },
-    {
-     "n": 6,
-     "x": 87.7,
-     "y": 1.6,
-     "w": 8.2,
-     "h": 3.8
+     "n": 7,
+     "x": 4.5,
+     "y": 81.2,
+     "w": 64.7,
+     "h": 4.5
     },
     {
      "n": 9,
-     "x": 9.7,
-     "y": 76.2,
-     "w": 80.5,
-     "h": 5.1
+     "x": 0.3,
+     "y": 69.6,
+     "w": 99.4,
+     "h": 6.9
+    },
+    {
+     "n": 16,
+     "x": 55.8,
+     "y": 26.8,
+     "w": 39.7,
+     "h": 36.6
     }
    ]
   },
   {
-   "id": "pricing-desktop",
-   "src": "demo/pricing-desktop.jpg",
-   "cap": "Ціни",
+   "id": "home-768",
+   "src": "demo/home-768.jpg",
+   "cap": "Home",
+   "url": "index.html",
+   "vp": "768×1024",
+   "w": 768,
+   "h": 1024,
+   "marks": [
+    {
+     "n": 4,
+     "x": 0.3,
+     "y": 66.5,
+     "w": 99.4,
+     "h": 5.4
+    },
+    {
+     "n": 12,
+     "x": 4.8,
+     "y": 20,
+     "w": 45.9,
+     "h": 19.4
+    },
+    {
+     "n": 10,
+     "x": 4.8,
+     "y": 53.3,
+     "w": 45,
+     "h": 4.4
+    },
+    {
+     "n": 10,
+     "x": 59.8,
+     "y": 44.8,
+     "w": 32.5,
+     "h": 4.2
+    }
+   ]
+  },
+  {
+   "id": "home-360",
+   "src": "demo/home-360.jpg",
+   "cap": "Home",
+   "url": "index.html",
+   "vp": "360×780",
+   "w": 360,
+   "h": 780,
+   "marks": [
+    {
+     "n": 5,
+     "x": 0.3,
+     "y": 0.3,
+     "w": 99.4,
+     "h": 13.4
+    },
+    {
+     "n": 3,
+     "x": 4.4,
+     "y": 59.6,
+     "w": 50,
+     "h": 13.2
+    },
+    {
+     "n": 13,
+     "x": 86.7,
+     "y": 15.4,
+     "w": 8.9,
+     "h": 4.1
+    },
+    {
+     "n": 6,
+     "x": 4.4,
+     "y": 67,
+     "w": 42.6,
+     "h": 5.8
+    },
+    {
+     "n": 14,
+     "x": 4.4,
+     "y": 40.5,
+     "w": 91.1,
+     "h": 15.8
+    }
+   ]
+  },
+  {
+   "id": "pricing-1280",
+   "src": "demo/pricing-1280.jpg",
+   "cap": "Pricing",
    "url": "pricing.html",
-   "vp": "desktop 1280×800",
+   "vp": "1280×800",
    "w": 1280,
    "h": 800,
    "marks": [
     {
-     "n": 7,
+     "n": 11,
      "x": 9.9,
      "y": 21.1,
      "w": 18.8,
@@ -683,78 +694,27 @@ code{font:13px/1.4 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;backgrou
      "h": 1.9
     },
     {
-     "n": 10,
-     "x": 11.7,
-     "y": 48.6,
-     "w": 22.2,
-     "h": 5.7
-    },
-    {
-     "n": 12,
+     "n": 8,
      "x": 9.9,
      "y": 61.4,
      "w": 17,
      "h": 2.2
     },
     {
-     "n": 13,
-     "x": 67.9,
-     "y": 1.6,
-     "w": 29.2,
-     "h": 4.3
+     "n": 10,
+     "x": 11.7,
+     "y": 48.6,
+     "w": 22.2,
+     "h": 5.7
     }
    ]
   }
  ],
  "ops": [
   {
-   "t": "Дати полям реєстрації видимі підписи й правильні типи (пароль видно відкритим текстом)",
-   "l": "form",
-   "ln": "Форми · A11y",
-   "x": "opt",
-   "ev": "obs",
-   "sev": 4,
-   "I": 9,
-   "C": 9,
-   "E": 9
-  },
-  {
-   "t": "Підняти контраст тексту: 37 з 97 елементів не проходять WCAG AA",
+   "t": "Bring back the keyboard focus ring (0 of 32 stops show focus)",
    "l": "color",
-   "ln": "Колір і контраст",
-   "x": "opt",
-   "ev": "obs",
-   "sev": 3,
-   "I": 8,
-   "C": 9,
-   "E": 8
-  },
-  {
-   "t": "Одна головна дія: «Get started» і «Book a demo» конкурують із формою",
-   "l": "hier",
-   "ln": "Візуальна ієрархія",
-   "x": "opt",
-   "ev": "obs",
-   "sev": 3,
-   "I": 7,
-   "C": 6,
-   "E": 8
-  },
-  {
-   "t": "Прибрати горизонтальну прокрутку на телефоні (стрічка фіч 1 096 px завширшки)",
-   "l": "resp",
-   "ln": "Адаптивність",
-   "x": "opt",
-   "ev": "obs",
-   "sev": 3,
-   "I": 7,
-   "C": 9,
-   "E": 9
-  },
-  {
-   "t": "Повернути рамку фокуса (0 з 31 кроків показують фокус) і додати мову сторінки",
-   "l": "a11y",
-   "ln": "Доступність",
+   "ln": "Colour and contrast",
    "x": "opt",
    "ev": "obs",
    "sev": 4,
@@ -763,9 +723,42 @@ code{font:13px/1.4 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;backgrou
    "E": 9
   },
   {
-   "t": "Збільшити зони дотику на телефоні (9 з 17 менші за 24 px) і назвати кнопку меню",
+   "t": "Raise grey text to AA: 16 of 39 text elements fail at 1280",
+   "l": "color",
+   "ln": "Colour and contrast",
+   "x": "opt",
+   "ev": "obs",
+   "sev": 3,
+   "I": 8,
+   "C": 9,
+   "E": 8
+  },
+  {
+   "t": "One primary action: the pulsing orange “Book a demo” outweighs “Get started free”",
+   "l": "cta",
+   "ln": "CTA prominence",
+   "x": "opt",
+   "ev": "obs",
+   "sev": 3,
+   "I": 7,
+   "C": 7,
+   "E": 8
+  },
+  {
+   "t": "Stop the sideways scroll below 1280: the feature strip makes the page 1,096–1,117 px wide",
    "l": "resp",
-   "ln": "Адаптивність · A11y",
+   "ln": "Responsive",
+   "x": "opt",
+   "ev": "obs",
+   "sev": 3,
+   "I": 7,
+   "C": 9,
+   "E": 9
+  },
+  {
+   "t": "Reserve space for the promo bar: it lands at ≈ 750 ms and shifts the page (CLS 0.137 at 360)",
+   "l": "perf",
+   "ln": "Perceived performance",
    "x": "opt",
    "ev": "obs",
    "sev": 3,
@@ -774,42 +767,53 @@ code{font:13px/1.4 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;backgrou
    "E": 8
   },
   {
-   "t": "Прибрати таймер на сторінці цін, що перезапускається при кожному завантаженні",
-   "l": "copy",
-   "ln": "Мікрокопі й довіра",
-   "x": "opt",
-   "ev": "obs",
-   "sev": 3,
-   "I": 6,
-   "C": 9,
-   "E": 10
-  },
-  {
-   "t": "Замінити «Submit» на підпис, що каже, що станеться",
-   "l": "copy",
-   "ln": "Мікрокопі",
+   "t": "Respect reduced motion: the demo button pulses forever, even with reduce set",
+   "l": "motion",
+   "ln": "Motion",
    "x": "opt",
    "ev": "obs",
    "sev": 2,
    "I": 4,
-   "C": 7,
-   "E": 10
+   "C": 9,
+   "E": 9
   },
   {
-   "t": "Показувати реакцію після реєстрації: валідацію, завантаження й успіх",
-   "l": "state",
-   "ln": "Стани й зворотний зв'язок",
+   "t": "Use one icon style: outline, filled and emoji icons sit side by side",
+   "l": "img",
+   "ln": "Imagery and icons",
    "x": "opt",
-   "ev": "hyp",
-   "sev": 3,
-   "I": 7,
-   "C": 5,
+   "ev": "obs",
+   "sev": 2,
+   "I": 4,
+   "C": 9,
+   "E": 8
+  },
+  {
+   "t": "Cut the type scale from 11 sizes to 6 and lift text under 12 px",
+   "l": "type",
+   "ln": "Typography scale",
+   "x": "opt",
+   "ev": "obs",
+   "sev": 2,
+   "I": 4,
+   "C": 8,
    "E": 6
   },
   {
-   "t": "Одна форма кнопок замість чотирьох радіусів (4, 6, 12, 999 px)",
+   "t": "Put spacing on a 4 px scale (11 of 18 values are off it)",
+   "l": "space",
+   "ln": "Spacing rhythm",
+   "x": "opt",
+   "ev": "obs",
+   "sev": 1,
+   "I": 3,
+   "C": 8,
+   "E": 6
+  },
+  {
+   "t": "One button shape instead of four radii (4, 6, 12, 999 px)",
    "l": "sys",
-   "ln": "Дизайн-система",
+   "ln": "Design system",
    "x": "opt",
    "ev": "obs",
    "sev": 2,
@@ -818,209 +822,199 @@ code{font:13px/1.4 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;backgrou
    "E": 7
   },
   {
-   "t": "Перевести відступи на 8-пікс. шкалу (зараз 13, 18, 22, 26, 37 px)",
-   "l": "grid",
-   "ln": "Сітка й відступи",
-   "x": "opt",
-   "ev": "obs",
-   "sev": 1,
-   "I": 3,
-   "C": 8,
-   "E": 6
-  },
-  {
-   "t": "Збільшити дрібний текст: футер, соцмережі й примітка про ПДВ — 10–11 px, основний текст 14 px / 1.3",
-   "l": "type",
-   "ln": "Типографіка",
+   "t": "Bring the oranges back into the palette (#e8572a, #d2471d are not brand colours)",
+   "l": "brand",
+   "ln": "Brand coherence",
    "x": "opt",
    "ev": "obs",
    "sev": 2,
    "I": 4,
-   "C": 8,
-   "E": 9
+   "C": 7,
+   "E": 7
   },
   {
-   "t": "Показувати поточну сторінку в навігації",
-   "l": "nav",
-   "ln": "Навігація",
+   "t": "Give 768 px its own layout: the hero keeps two columns and the H1 runs to 4 lines",
+   "l": "grid",
+   "ln": "Layout and grid",
+   "x": "opt",
+   "ev": "obs",
+   "sev": 2,
+   "I": 5,
+   "C": 8,
+   "E": 7
+  },
+  {
+   "t": "Enlarge phone tap targets: 9 of 17 are under 24 px, the menu button is 32 px",
+   "l": "resp",
+   "ln": "Responsive",
+   "x": "opt",
+   "ev": "obs",
+   "sev": 2,
+   "I": 4,
+   "C": 9,
+   "E": 8
+  },
+  {
+   "t": "Show a 2-line max on the hero subtitle at 360 (5 lines now)",
+   "l": "hier",
+   "ln": "Visual hierarchy",
    "x": "opt",
    "ev": "obs",
    "sev": 1,
    "I": 3,
-   "C": 8,
-   "E": 9
+   "C": 7,
+   "E": 8
   },
   {
-   "t": "Перевірити реєстрацію «спершу email» (пароль на наступному кроці)",
-   "l": "form",
-   "ln": "Форми · Евристики",
+   "t": "Decide on dark mode: none today, light colours are hard-coded",
+   "l": "dark",
+   "ln": "Dark mode",
+   "x": "ex",
+   "ev": "hyp",
+   "sev": 1,
+   "I": 3,
+   "C": 4,
+   "E": 3
+  },
+  {
+   "t": "Test a single-column hero: one CTA, sign-up card below",
+   "l": "hier",
+   "ln": "Visual hierarchy",
    "x": "ex",
    "ev": "hyp",
    "sev": 2,
-   "I": 7,
+   "I": 6,
    "C": 4,
    "E": 5
   }
  ],
  "plans": {
   "1": {
-   "h": "Якщо обидва поля отримають видимі підписи й правильні типи, користувачі скрінрідерів зможуть зареєструватися, а пароль ніхто не побачить на екрані, бо поля будуть оголошені й замасковані.",
-   "m": "Форма проходить автоматичну перевірку підписів (2 з 2) і прохід зі скрінрідером",
-   "t": "Виправити в гілці, запустити inspect_ui.py і один раз VoiceOver/NVDA (≈30 хв)"
-  },
-  "5": {
-   "h": "Якщо фокус знову видно, користувачі клавіатури бачать, де вони, і завершують реєстрацію, бо кожен елемент показує рамку при переході Tab.",
-   "m": "Кроки клавіатури з видимим фокусом (зараз 0 з 31)",
-   "t": "Пройти Tab головну й ціни після зміни; повторити перевірку фокуса"
+   "h": "If focus is visible again, keyboard users can see where they are and finish sign-up, because every control shows a ring when tabbed to.",
+   "m": "Keyboard stops with a visible focus: 32 of 32 (now 0)",
+   "t": "Delete one CSS rule, add :focus-visible, rerun inspect_ui.py (≈15 min)"
   },
   "2": {
-   "h": "Якщо другорядний текст отримає #6b7280 замість #a3a9b4, підзаголовок і юридичний текст стануть читабельними для людей зі слабким зором і на сонці, майже не змінивши вигляду.",
-   "m": "Текстові елементи, що проходять AA (зараз 60 з 97)",
-   "t": "Замінити два сірі в style.css і повторити inspect_ui.py на 3 екранах"
+   "h": "If secondary text uses #6b7280 instead of the three pale greys, the subtitle and small print become readable for low-vision visitors and in sunlight.",
+   "m": "Text passing AA at 1280: 39 of 39 (now 23)",
+   "t": "Swap the greys in style.css and rerun inspect_ui.py at 3 widths"
+  },
+  "4": {
+   "h": "If the strip wraps instead of overflowing, phones and tablets stop scrolling sideways and the browser stops zooming the page out.",
+   "m": "Page width equals viewport at 360 and 768",
+   "t": "Add flex-wrap to .strip and rerun inspect_ui.py at 360/768"
   }
  },
  "detail": {
   "1": {
-   "why": "Обидва поля мають лише placeholder («Email», «Password») і жодного підпису: автоматична перевірка знайшла 0 з 2 полів з доступною назвою (WCAG 1.3.1, 3.3.2, 4.1.2). Обидва type=\"text\", тож пароль видно на екрані, а телефон показує звичайну клавіатуру замість email. Placeholder зникає, щойно людина починає вводити.",
+   "why": "style.css has *:focus { outline: none } and nothing in its place. A Tab walk at 1280 found 0 of 23 stops on home and 0 of 9 on pricing with any visible change (WCAG 2.4.7). Keyboard users cannot see where they are.",
    "where": [
     {
-     "page": "Головна, реєстрація",
-     "url": "index.html",
-     "vp": "усі",
-     "sel": "#email",
-     "shot": "home-desktop"
-    },
-    {
-     "page": "Головна, реєстрація",
-     "url": "index.html",
-     "vp": "усі",
-     "sel": "#password",
-     "shot": "home-phone"
+     "page": "All pages",
+     "url": "style.css",
+     "vp": "all",
+     "sel": "*:focus",
+     "shot": "home-1280"
     }
    ],
    "change": [
     {
-     "prop": "label",
-     "cur": "немає (лише placeholder)",
-     "tgt": "<label for=\"email\">Робочий email<\/label> і <label for=\"password\">Пароль<\/label>, видимі над полями",
-     "src": "inspect_ui.py, перевірка підписів"
-    },
-    {
-     "prop": "type (#email)",
-     "cur": "text",
-     "tgt": "email, autocomplete=\"email\"",
-     "src": "DOM"
-    },
-    {
-     "prop": "type (#password)",
-     "cur": "text",
-     "tgt": "password, autocomplete=\"new-password\"",
-     "src": "DOM"
-    },
-    {
-     "prop": "placeholder color",
-     "cur": "#b8bec9",
-     "tgt": "прибрати placeholder або #6b7280, якщо лишається як підказка",
-     "token": "color.text-muted",
-     "src": "style.css"
+     "prop": "outline on :focus-visible",
+     "cur": "none",
+     "tgt": "2px solid #3156d3, offset 2px",
+     "token": "color.primary",
+     "src": "inspect_ui.py focus walk"
     }
    ],
    "steps": [
-    "Додати видимий <label> над кожним полем в index.html і зв'язати через for/id.",
-    "Змінити #email на type=\"email\" autocomplete=\"email\", а #password на type=\"password\" autocomplete=\"new-password\".",
-    "Стилізувати підписи в .card: 14px/1.4, color.text, 6px до поля.",
-    "Запустити inspect_ui.py на головній (підписи мають бути 2 з 2) і один раз перевірити скрінрідером."
+    "Delete *:focus { outline: none }.",
+    "Add :focus-visible { outline: 2px solid var(--color-primary); outline-offset: 2px }.",
+    "Rerun inspect_ui.py: focus visible must be 23 of 23 and 9 of 9."
    ],
-   "metric": "Поля з доступною назвою: 2 з 2 (зараз 0 з 2)",
-   "effort": "≈1 година",
-   "risk": "Картка стане вищою на ≈40 px; перевірити, що форма все ще вміщується на перший екран desktop (зараз закінчується на 52% з 800 px).",
+   "metric": "Keyboard stops with a visible focus: 32 of 32 (now 0)",
+   "effort": "≈15 minutes",
+   "risk": "Mouse users see no ring with :focus-visible, so their view does not change.",
    "alt": [
-    "Плаваючі підписи всередині поля — відкинуто: зменшуються до дрібного тексту й часто не проходять контраст.",
-    "Лише aria-label — відкинуто: виправляє скрінрідери, але зрячі користувачі все одно втрачають підказку після введення."
+    "Box-shadow ring: also valid; outline chosen because it survives Windows high-contrast mode.",
+    "Underline links on focus only: not enough for buttons and inputs."
    ],
-   "rtype": "Юзабіліті",
-   "thr": "Перевірка підписів 2 з 2, пароль замаскований, скрінрідер правильно оголошує обидва поля",
-   "pm": "Випустили, а для скрінрідерів нічого не змінилося: видимий підпис додали, але не зв'язали (for/id не збігаються). Тому критерій приймання — автоматична перевірка підписів, а не лише погляд.",
-   "accept": [
-    "`#email` і `#password` мають видимий підпис, зв'язаний через for/id (inspect_ui.py: підписи 2 з 2)",
-    "`#password` має type=\"password\", введений текст замаскований",
-    "`#email` має type=\"email\" і autocomplete=\"email\"; телефон показує клавіатуру для email",
-    "Форма все ще вміщується на перший екран 1280×800"
-   ]
+   "rtype": "Usability",
+   "thr": "32 of 32 stops show focus",
+   "pm": "It shipped and focus was still invisible on the blue Submit button, because the ring was the same blue. Use outline-offset so the ring sits on the white around it."
   },
   "2": {
-   "why": "inspect_ui.py знайшов 37 з 97 текстових елементів нижче WCAG AA (1.4.3). Найгірші: підзаголовок #a3a9b4 на білому = 2.36:1, посилання Terms/Privacy #a3a9b4 на #f6f7fb = 2.21:1, «/mo per seat» 2.36:1, примітка про ПДВ #b8bec9 = 1.87:1, стрічка фіч і «No card needed» #8d94a1 = 3.05:1. Потрібно 4.5:1.",
+   "why": "16 of 39 text elements at 1280 fail WCAG AA (1.4.3): the hero subtitle #a3a9b4 on white = 2.36:1, “No card needed” and the feature strip #8d94a1 = 3.05:1, the Terms links #a3a9b4 on #f6f7fb = 2.21:1, footer links 2.36:1. On pricing “/mo per seat” is 2.36:1 and the VAT note #b8bec9 is 1.87:1.",
    "where": [
     {
-     "page": "Головна",
+     "page": "Home",
      "url": "index.html",
-     "vp": "усі",
+     "vp": "all",
      "sel": ".sub, .proof, .strip span, .terms a, footer a",
-     "shot": "home-desktop"
+     "shot": "home-1280"
     },
     {
-     "page": "Ціни",
+     "page": "Pricing",
      "url": "pricing.html",
-     "vp": "усі",
+     "vp": "all",
      "sel": ".price small, .vat",
-     "shot": "pricing-desktop"
+     "shot": "pricing-1280"
     }
    ],
    "change": [
     {
      "prop": "color (.sub, .terms a, footer a, .price small)",
      "cur": "#a3a9b4 (2.36:1)",
-     "tgt": "#6b7280 (4.83:1 на білому, 4.52:1 на #f6f7fb)",
+     "tgt": "#6b7280 (4.83:1)",
      "token": "color.text-muted",
-     "src": "inspect_ui.py, контраст"
+     "src": "inspect_ui.py"
     },
     {
      "prop": "color (.proof, .strip)",
      "cur": "#8d94a1 (3.05:1)",
      "tgt": "#6b7280",
      "token": "color.text-muted",
-     "src": "inspect_ui.py, контраст"
+     "src": "inspect_ui.py"
     },
     {
      "prop": "color (.vat)",
      "cur": "#b8bec9 (1.87:1)",
      "tgt": "#6b7280",
      "token": "color.text-muted",
-     "src": "inspect_ui.py, контраст"
+     "src": "inspect_ui.py"
     }
    ],
    "steps": [
-    "Додати токен приглушеного тексту (--color-text-muted: #6b7280) у style.css.",
-    "Замінити #a3a9b4, #8d94a1 і #b8bec9 для тексту на токен; світліші сірі лишити тільки для рамок і декору.",
-    "Повторити inspect_ui.py на головній (desktop, телефон) і цінах; у списку провалів контрасту не має лишитися нічого, крім CTA з #3."
+    "Add --color-text-muted: #6b7280.",
+    "Replace #a3a9b4, #8d94a1 and #b8bec9 for text with it; keep pale greys for borders only.",
+    "Rerun inspect_ui.py at 3 widths; only the demo button (#3) may still fail."
    ],
-   "metric": "Текстові елементи, що проходять AA: зараз 60 з 97, ціль 97 з 97",
-   "effort": "≈1 година",
-   "risk": "Сторінка стане трохи «важчою»; ієрархію тримати розміром і вагою шрифту, а не блідішим сірим.",
+   "metric": "Text passing AA at 1280: 39 of 39 (now 23)",
+   "effort": "≈1 hour",
+   "risk": "Heavier look; keep hierarchy with size and weight, not paler grey.",
    "alt": [
-    "Затемнити лише підзаголовок — відкинуто: лишає 30+ проблемних елементів у футері, стрічці й цінах.",
-    "Темніший сірий #5d6472 (5.95:1) — лишено як запасний варіант, якщо #6b7280 не пройде на нових поверхнях."
+    "Darken only the subtitle: leaves 15 failures.",
+    "A darker #5d6472 (5.95:1): kept in reserve for new surfaces."
    ],
-   "rtype": "Юзабіліті",
-   "thr": "0 текстових елементів нижче AA на 3 перевірених екранах (крім тексту на зображеннях)",
-   "pm": "Випустили, а перевірка все одно падала: сірі були вписані вручну в 6 місцях, і два пропустили. Спершу знайти в style.css усі hex-значення й замінити їх через токен."
+   "rtype": "Usability",
+   "thr": "0 text elements below AA on the 4 screenshots",
+   "pm": "The check still failed because greys were hard-coded in six places and two were missed. Search style.css for every hex value first."
   },
   "3": {
-   "why": "На першому екрані дві заливні кнопки однакового розміру (Get started free 180×46, Book a demo 153×46), а поруч у формі третя заливна кнопка («Submit»). Помаранчева кнопка демо притягує погляд найбільше (закон Хіка, візуальна вага), а її білий текст має лише 3.6:1 на #e8572a. На телефоні обидві кнопки стоять поруч над формою.",
+   "why": "Two filled buttons of the same size sit side by side - “Get started free” (#3156d3, 180×46) and “Book a demo” (#e8572a, 153×46) - and the sign-up card adds a third filled “Submit”. The orange one wins the eye: it is the only warm colour on the page and it pulses (#6). Its white text is 3.6:1. At 360 the two stack and the form drops below the fold.",
    "where": [
     {
-     "page": "Головна, перший екран",
+     "page": "Home, hero",
      "url": "index.html",
-     "vp": "усі",
+     "vp": "all",
      "sel": ".ctas .btn-demo",
-     "shot": "home-desktop"
+     "shot": "home-1280"
     },
     {
-     "page": "Головна, перший екран",
+     "page": "Home, hero",
      "url": "index.html",
-     "vp": "390×844",
+     "vp": "360",
      "sel": ".ctas",
-     "shot": "home-phone"
+     "shot": "home-360"
     }
    ],
    "change": [
@@ -1032,455 +1026,429 @@ code{font:13px/1.4 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;backgrou
     },
     {
      "prop": "color / border (.btn-demo)",
-     "cur": "#ffffff на #e8572a (3.6:1)",
-     "tgt": "текст #3156d3, рамка 1px #3156d3 (6.17:1)",
+     "cur": "#ffffff on #e8572a (3.6:1)",
+     "tgt": "#3156d3 text, 1px #3156d3 border (6.17:1)",
      "token": "color.primary",
      "src": "inspect_ui.py"
-    },
-    {
-     "prop": "href (.btn-primary)",
-     "cur": "#signup",
-     "tgt": "#signup і перевести фокус на #email",
-     "src": "DOM"
     }
    ],
    "steps": [
-    "Зробити «Book a demo» другорядною (контурною) кнопкою в color.primary.",
-    "Лишити «Get started free» єдиною заливною; при кліку переводити фокус у поле email.",
-    "На телефоні поставити кнопки одна під одною на всю ширину, головна — перша.",
-    "Провести 5-секундний тест із 5 людьми: що ви натиснули б першим?"
+    "Make “Book a demo” a secondary outline button.",
+    "Keep “Get started free” as the only filled button in the hero.",
+    "5-second test with 5 people: what would you click first?"
    ],
-   "metric": "Частка перших кліків на головну дію (5-секундний тест / тест першого кліку)",
-   "effort": "≈2 години",
-   "risk": "Заявок на демо може поменшати; відстежувати їх окремо 2 тижні.",
-   "copy": [
-    "«Почати безкоштовно — без картки»: відповідь про ціну прямо в кнопці.",
-    "«Створити перший рахунок»: називає результат, а не акаунт."
-   ]
+   "metric": "First clicks on the primary action (5-second / first-click test)",
+   "effort": "≈1 hour",
+   "risk": "Demo requests may drop; watch them for 2 weeks."
   },
   "4": {
-   "why": "На 390 px сторінка має 1 096 px завширшки: стрічка фіч — п'ять елементів по 200 px у flex-рядку з overflow: visible, тож уся сторінка прокручується вбік, а браузер може її зменшувати (WCAG 1.4.10 Reflow).",
+   "why": "The feature strip is five 200 px items in a non-wrapping flex row with overflow: visible. At 768 the page becomes 1,117 px wide and at 360 1,096 px; the browser offers sideways scroll and phones may zoom the page out (WCAG 1.4.10 Reflow).",
    "where": [
     {
-     "page": "Головна, стрічка фіч",
+     "page": "Home, feature strip",
      "url": "index.html",
-     "vp": "390×844",
+     "vp": "768, 360",
      "sel": ".strip",
-     "shot": "home-phone"
+     "shot": "home-768"
     }
    ],
    "change": [
     {
-     "prop": "ширина документа на 390 px",
-     "cur": "1096px",
-     "tgt": "390px (без прокрутки вбік)",
+     "prop": "document width",
+     "cur": "1,117px at 768; 1,096px at 360",
+     "tgt": "equal to the viewport",
      "src": "inspect_ui.py"
     },
     {
-     "prop": ".strip span width",
-     "cur": "200px (flex: none)",
-     "tgt": "auto; .strip flex-wrap: wrap",
+     "prop": ".strip / .strip span",
+     "cur": "no wrap; span width 200px, flex none",
+     "tgt": "flex-wrap: wrap; gap 8px 16px; span width auto",
      "src": "style.css"
     }
    ],
    "steps": [
-    "Задати .strip { flex-wrap: wrap; gap: 8px 16px } і прибрати фіксовану ширину в .strip span.",
-    "Перевірити на 360, 390 і 820 px, що більше нічого не виходить за край (inspect_ui.py пише SIDEWAYS SCROLL, якщо виходить)."
+    "Set .strip { flex-wrap: wrap; gap: 8px 16px } and drop the fixed width on .strip span.",
+    "Rerun inspect_ui.py at 360, 768 and 1280: no SIDEWAYS SCROLL line."
    ],
-   "metric": "Ширина сторінки на 390 px дорівнює 390 px",
-   "effort": "≈20 хвилин",
-   "risk": "Суттєвих немає; на телефоні стрічка стане 2–3 рядками."
+   "metric": "Page width equals viewport at 360 and 768",
+   "effort": "≈20 minutes",
+   "risk": "The strip becomes 2–3 lines on phones.",
+   "alt": [
+    "Hide the strip below 768: loses content.",
+    "Horizontal scroller with snap: fine, but a hidden overflow on a key selling point."
+   ],
+   "rtype": "Usability",
+   "thr": "No sideways scroll at 360, 390, 768 and 820",
+   "pm": "The strip was fixed but the 5-item nav overflowed at 768 next. Rerun the check at every width, not only the one in the ticket."
   },
   "5": {
-   "why": "У style.css є *:focus { outline: none } без заміни: прохід Tab по головній і цінах дав 0 з 31 кроків з будь-якою видимою зміною (WCAG 2.4.7). Користувачі клавіатури не бачать, де вони. Також немає <html lang>, тож скрінрідери вгадують мову (3.1.1).",
+   "why": "A promo bar (“New: recurring invoices for retainers”) is inserted by script ≈ 750 ms after load at the top of the page, 88 px tall (107 px at 360). Everything below jumps down: CLS 0.068 at 1280, 0.085 at 768 and 0.137 at 360 (above the 0.1 limit). The shifted nodes are main, header.top and the sign-up button.",
    "where": [
     {
-     "page": "Усі сторінки",
-     "url": "style.css",
-     "vp": "desktop 1280×800",
-     "sel": "*:focus",
-     "shot": "home-desktop"
-    },
-    {
-     "page": "Усі сторінки",
-     "url": "index.html, pricing.html",
-     "vp": "усі",
-     "sel": "html"
+     "page": "Home",
+     "url": "index.html",
+     "vp": "all",
+     "sel": ".promo (inserted by the inline script)",
+     "shot": "home-360"
     }
    ],
    "change": [
     {
-     "prop": "outline при :focus-visible",
-     "cur": "немає",
-     "tgt": "2px solid #3156d3, offset 2px",
-     "token": "color.primary",
-     "src": "inspect_ui.py, прохід фокуса"
+     "prop": "promo bar",
+     "cur": "inserted at ≈ 750 ms, pushes content",
+     "tgt": "rendered in the HTML, or a reserved 88px slot (min-height) from first paint",
+     "src": "inspect_ui.py"
     },
     {
-     "prop": "html lang",
-     "cur": "відсутній",
-     "tgt": "en",
+     "prop": "CLS at 360",
+     "cur": "0.137",
+     "tgt": "≤ 0.1",
      "src": "inspect_ui.py"
     }
    ],
    "steps": [
-    "Видалити *:focus { outline: none }.",
-    "Додати :focus-visible { outline: 2px solid var(--color-primary); outline-offset: 2px } для посилань, кнопок і полів.",
-    "Додати lang=\"en\" до <html> на кожній сторінці.",
-    "Повторити inspect_ui.py: видимий фокус має бути 31 з 31."
+    "Render the promo in the HTML, or reserve its height with a placeholder of the same size.",
+    "Rerun inspect_ui.py: CLS ≤ 0.1 at all widths."
    ],
-   "metric": "Кроки клавіатури з видимим фокусом: 31 з 31 (зараз 0)",
-   "effort": "≈30 хвилин",
-   "risk": "Користувачі миші з :focus-visible рамки не бачать, тож для них вигляд не зміниться.",
-   "alt": [
-    "Рамка фокуса через box-shadow — так само валідно; обрано outline, бо він працює в режимі високого контрасту Windows.",
-    "Підкреслення посилань лише при фокусі — відкинуто: замало для кнопок і полів."
-   ],
-   "rtype": "Юзабіліті",
-   "thr": "31 з 31 кроків показують фокус; реєстрація лише клавіатурою проходить",
-   "pm": "Випустили, а на синій кнопці Submit фокус усе одно не видно: рамка того самого синього кольору. Використати outline-offset, щоб рамка лягала на білий фон навколо."
+   "metric": "CLS ≤ 0.1 at 360, 768, 1280",
+   "effort": "≈30 minutes",
+   "risk": "None."
   },
   "6": {
-   "why": "На телефоні 9 з 17 зон дотику менші за мінімум 24×24 px (WCAG 2.5.8): 4 іконки соцмереж 18×18, 5 посилань футера 14 px заввишки. Лише 2 з 17 досягають зручних 44×44. Кнопка меню 32×32 і не має доступної назви (читається як «☰»).",
+   "why": "“Book a demo” runs an infinite 1.6 s box-shadow pulse. There are no prefers-reduced-motion rules, and with reduce emulated the animation still runs (1 running animation).",
    "where": [
     {
-     "page": "Головна, футер",
+     "page": "Home, hero",
      "url": "index.html",
-     "vp": "390×844",
-     "sel": ".social a, footer a",
-     "shot": "home-desktop",
-     "mark": 6
-    },
-    {
-     "page": "Головна, шапка",
-     "url": "index.html",
-     "vp": "390×844",
-     "sel": ".burger",
-     "shot": "home-phone"
+     "vp": "all",
+     "sel": ".btn-demo",
+     "shot": "home-360"
     }
    ],
    "change": [
     {
-     "prop": "size (.social a)",
-     "cur": "18×18 px",
-     "tgt": "44×44 px (іконка лишається 18 px)",
+     "prop": "animation (.btn-demo)",
+     "cur": "pulse 1.6s infinite",
+     "tgt": "none, or 2 iterations and none under prefers-reduced-motion: reduce",
      "src": "inspect_ui.py"
-    },
-    {
-     "prop": "height (footer a)",
-     "cur": "14 px",
-     "tgt": "≥ 24 px (padding 5px 4px), краще 44 px",
-     "src": "inspect_ui.py"
-    },
-    {
-     "prop": "size (.burger)",
-     "cur": "32×32 px",
-     "tgt": "44×44 px",
-     "src": "inspect_ui.py"
-    },
-    {
-     "prop": "aria-label (.burger)",
-     "cur": "немає",
-     "tgt": "Menu (і aria-expanded)",
-     "src": "DOM"
     }
    ],
    "steps": [
-    "Задати .social a і .burger ширину й висоту 44px з іконкою по центру.",
-    "Додати відступи посиланням футера, щоб кожне мало щонайменше 24 px заввишки й 8 px між ними.",
-    "Додати кнопці меню aria-label=\"Menu\" та aria-expanded.",
-    "Повторити inspect_ui.py на 390×844: зони ≥ 24 px мають бути 17 з 17."
+    "Remove the infinite pulse, or limit it to 2 runs.",
+    "Add @media (prefers-reduced-motion: reduce) { * { animation: none !important; transition: none !important } } as a safety net."
    ],
-   "metric": "Зони дотику на телефоні ≥ 24 px: 17 з 17 (зараз 8); ≥ 44 px: щонайменше 90%",
-   "effort": "≈1 година",
-   "risk": "Футер виросте на ≈30 px; це нормально."
+   "metric": "0 running animations with reduced motion",
+   "effort": "≈10 minutes",
+   "risk": "None.",
+   "depends": [
+    "T03"
+   ]
   },
   "7": {
-   "why": "Бейдж «Launch offer ends in 09:59» на сторінці цін щоразу стартує з 10 хвилин: це фальшива терміновість, dark pattern, що підриває довіру й може порушувати правила захисту споживачів. Його текст також має 4.09:1 на #fff1ec, нижче AA.",
+   "why": "The three feature icons mix styles: an outline clock (1.6 stroke), a filled bell and a 📋 emoji. The feature strip uses ★ characters and pricing a 🔥 emoji. Four icon languages on two pages.",
    "where": [
     {
-     "page": "Ціни",
+     "page": "Home, features",
+     "url": "index.html",
+     "vp": "all",
+     "sel": ".ficon",
+     "shot": "home-1280"
+    },
+    {
+     "page": "Pricing",
      "url": "pricing.html",
-     "vp": "усі",
-     "sel": "#timer",
-     "shot": "pricing-desktop"
+     "vp": "all",
+     "sel": "#timer"
     }
    ],
    "change": [
     {
-     "prop": "#timer",
-     "cur": "відлік від 10:00 при кожному завантаженні",
-     "tgt": "прибрати або справжня дата («Стартова ціна до 31 січня»)",
-     "src": "скрипт сторінки"
+     "prop": "icon style",
+     "cur": "outline + filled + emoji",
+     "tgt": "one outline set, 24px, 1.6 stroke, color.primary",
+     "src": "DOM"
     }
    ],
    "steps": [
-    "Прибрати скрипт відліку й бейдж.",
-    "Якщо стартова ціна справжня, показати реальну дату завершення звичайним текстом у color.text-muted."
+    "Pick one outline icon set (the clock already matches).",
+    "Replace the bell, the emoji and the ★ characters with icons from that set."
    ],
-   "metric": "Жодної фальшивої терміновості; частку вибору тарифу спостерігати 2 тижні",
-   "effort": "≈15 хвилин",
-   "risk": "Невелике падіння кліків «під тиском» — вартує збереженої довіри.",
-   "copy": [
-    "«Стартова ціна до 31 січня»: правда, і все ще дає причину діяти.",
-    "«Ціна фіксується на рік, якщо зареєструватися зараз»: справжня вигода замість годинника."
-   ]
+   "metric": "Icon styles in use: 1",
+   "effort": "≈1 hour",
+   "risk": "None."
   },
   "8": {
-   "why": "Кнопка реєстрації каже «Submit» — це нічого не говорить про результат (Nielsen: відповідність реальному світу). Вона стоїть під «Create your account».",
+   "why": "Eleven distinct font sizes on home (10, 11, 12, 13, 14, 15, 17, 20, 22, 28, 46 px), with 13 and 14 px used side by side for similar text. 8 text elements per width are under 12 px (social labels 10 px, footer links 11 px); body text is 14 px with line-height 1.3.",
    "where": [
     {
-     "page": "Головна, реєстрація",
+     "page": "Home, pricing",
      "url": "index.html",
-     "vp": "усі",
-     "sel": "#signup .btn",
-     "shot": "home-desktop"
+     "vp": "all",
+     "sel": "body, footer, .social a, .vat",
+     "shot": "pricing-1280"
     }
    ],
    "change": [
     {
-     "prop": "текст кнопки",
-     "cur": "Submit",
-     "tgt": "Створити безкоштовний акаунт (Create free account)",
-     "src": "DOM"
-    }
-   ],
-   "steps": [
-    "Змінити текст кнопки.",
-    "Використати те саме дієслово в повідомленні про успіх («Акаунт створено»)."
-   ],
-   "metric": "Кнопка називає результат; тест першого кліку на формі",
-   "effort": "≈5 хвилин",
-   "risk": "Немає.",
-   "copy": [
-    "«Створити безкоштовний акаунт»: повторює заголовок і обіцянку про ціну.",
-    "«Почати виставляти рахунки»: називає те, заради чого прийшли."
-   ]
-  },
-  "9": {
-   "why": "У формі немає повідомлень валідації, стану завантаження чи неактивної кнопки і повідомлення про успіх у розмітці; обробник submit повертає false. Ми її не надсилали, тож що бачить користувач після кліку — гіпотеза: найімовірніше, нічого.",
-   "where": [
-    {
-     "page": "Головна, реєстрація",
-     "url": "index.html",
-     "vp": "усі",
-     "sel": "#signup",
-     "shot": "home-phone"
-    }
-   ],
-   "change": [
-    {
-     "prop": "повідомлення про помилку",
-     "cur": "немає",
-     "tgt": "інлайн-текст під полем, зв'язаний aria-describedby, після виходу з поля",
-     "src": "DOM"
-    },
-    {
-     "prop": "кнопка під час надсилання",
-     "cur": "стану немає",
-     "tgt": "disabled + «Створюємо акаунт…»",
-     "src": "DOM"
-    },
-    {
-     "prop": "успіх",
-     "cur": "немає",
-     "tgt": "перехід до онбордингу або повідомлення-підтвердження",
-     "src": "DOM"
-    }
-   ],
-   "steps": [
-    "Один раз надіслати форму на staging-копії з тестовим email і записати, що відбувається.",
-    "Додати інлайн-помилки для неправильного email і короткого пароля, після втрати фокуса полем.",
-    "Під час запиту вимикати кнопку й міняти її текст; показувати успіх або зрозумілу помилку."
-   ],
-   "metric": "Кожна спроба надсилання закінчується видимим успіхом або конкретною помилкою",
-   "effort": "≈1 день",
-   "risk": "Надто нетерпляча валідація (на кожен символ) дратує; перевіряти після виходу з поля й при надсиланні.",
-   "depends": [
-    "T01"
-   ]
-  },
-  "10": {
-   "why": "Обчислений border-radius кнопок: 12px (Get started), 999px (Book a demo), 4px (Submit, Log in), 6px (Choose на цінах); картки додають 8, 12 і 16px. Чотири форми кнопок на двох сторінках читаються як чотири різні компоненти.",
-   "where": [
-    {
-     "page": "Головна + Ціни",
-     "url": "index.html, pricing.html",
-     "vp": "усі",
-     "sel": ".btn, .menu .login",
-     "shot": "pricing-desktop"
-    }
-   ],
-   "change": [
-    {
-     "prop": "border-radius (кнопки)",
-     "cur": "4px / 6px / 12px / 999px",
-     "tgt": "8px",
-     "token": "radius.md",
+     "prop": "font sizes",
+     "cur": "11 sizes, 10–46px",
+     "tgt": "6 steps: 12 / 14 / 16 / 20 / 28 / 44px",
+     "token": "font.size.*",
      "src": "inspect_ui.py"
     },
     {
-     "prop": "border-radius (картки)",
-     "cur": "8px / 12px / 16px",
-     "tgt": "12px",
-     "token": "radius.lg",
-     "src": "inspect_ui.py"
-    }
-   ],
-   "steps": [
-    "Додати токени радіусів (radius.md 8px, radius.lg 12px) і використати їх у .btn, .login, .card, .plan.",
-    "Прибрати окремі радіуси для кожної кнопки."
-   ],
-   "metric": "Різних радіусів кнопок на сайті: 1 (зараз 4)",
-   "effort": "≈1 година",
-   "risk": "Немає; перевірити, що популярний тариф і далі виділяється рамкою, а не радіусом."
-  },
-  "11": {
-   "why": "Обчислені padding і gap: шапка 13px 37px, картка 26px 22px, стрічка 18px 37px, gap фіч 22px, gap першого екрана 48px. Жодної спільної шкали, тож краї секцій не вирівнюються.",
-   "where": [
-    {
-     "page": "Головна",
-     "url": "index.html",
-     "vp": "desktop 1280×800",
-     "sel": ".top, .card, .strip, .features",
-     "shot": "home-desktop"
-    }
-   ],
-   "change": [
-    {
-     "prop": "padding (.top)",
-     "cur": "13px 37px",
-     "tgt": "12px 40px",
-     "token": "space.3 / space.10",
-     "src": "inspect_ui.py"
-    },
-    {
-     "prop": "padding (.card)",
-     "cur": "26px 22px",
-     "tgt": "24px",
-     "token": "space.6",
-     "src": "inspect_ui.py"
-    },
-    {
-     "prop": "padding (.strip)",
-     "cur": "18px 37px",
-     "tgt": "16px 40px",
-     "token": "space.4 / space.10",
-     "src": "inspect_ui.py"
-    },
-    {
-     "prop": "gap (.features)",
-     "cur": "22px",
-     "tgt": "24px",
-     "token": "space.6",
-     "src": "style.css"
-    }
-   ],
-   "steps": [
-    "Додати шкалу відступів на основі 4/8 як токени.",
-    "Замінити значення поза шкалою; один горизонтальний відступ сторінки (40px desktop, 16px телефон)."
-   ],
-   "metric": "Значень відступів поза шкалою в style.css: 0",
-   "effort": "≈2 години",
-   "risk": "Невеликі зсуви макета; порівняти скріншоти до й після."
-  },
-  "12": {
-   "why": "17 з 97 текстових елементів на 3 скріншотах менші за 12 px: підписи соцмереж 10px, посилання футера й © 11px, примітка про ПДВ на цінах 11px. Основний текст на телефоні — 14px з line-height 1.3 (18.2px), тісно для абзаців.",
-   "where": [
-    {
-     "page": "Ціни",
-     "url": "pricing.html",
-     "vp": "усі",
-     "sel": ".vat",
-     "shot": "pricing-desktop"
-    },
-    {
-     "page": "Головна",
-     "url": "index.html",
-     "vp": "390×844",
-     "sel": "footer, .social a, .features p"
-    }
-   ],
-   "change": [
-    {
-     "prop": "font-size (footer, .vat)",
-     "cur": "11px",
-     "tgt": "13px",
-     "token": "font.size.sm",
-     "src": "inspect_ui.py"
-    },
-    {
-     "prop": "font-size (body на телефоні)",
-     "cur": "14px",
-     "tgt": "16px",
+     "prop": "body",
+     "cur": "14px / 1.3",
+     "tgt": "16px / 1.5",
      "token": "font.size.md",
      "src": "inspect_ui.py"
     },
     {
-     "prop": "line-height (body)",
-     "cur": "1.3 (18.2px)",
-     "tgt": "1.5",
+     "prop": "footer, .vat, .social a",
+     "cur": "10–11px",
+     "tgt": "12px minimum",
      "src": "inspect_ui.py"
     }
    ],
    "steps": [
-    "Задати body 16px/1.5 нижче 700 px і 15px/1.5 вище.",
-    "Підняти текст футера, соцмереж і ПДВ до 13px."
+    "Define 6 size tokens and map every font-size to the nearest.",
+    "Set body to 16px/1.5."
    ],
-   "metric": "Тексту менше 12 px: 0 (зараз 17 з 97 на 3 скріншотах)",
-   "effort": "≈30 хвилин",
-   "risk": "Довші сторінки на телефоні; прийнятно."
+   "metric": "Distinct font sizes ≤ 6; text under 12 px: 0",
+   "effort": "≈2 hours",
+   "risk": "Longer page on phones."
   },
-  "13": {
-   "why": "На pricing.html посилання «Pricing» виглядає так само, як інші: поточну сторінку нічим не позначено, aria-current немає (евристика: видимість стану системи).",
+  "9": {
+   "why": "Paddings, margins and gaps take 18 distinct values; 11 are off a 4 px scale: 6, 7, 10, 11, 13, 14, 18, 22, 26, 34, 37 px (e.g. header 13px 37px, card 26px 22px, strip 18px 37px).",
    "where": [
     {
-     "page": "Ціни, шапка",
-     "url": "pricing.html",
-     "vp": "desktop 1280×800",
-     "sel": ".menu a[href=\"pricing.html\"]",
-     "shot": "pricing-desktop"
+     "page": "Home",
+     "url": "index.html",
+     "vp": "all",
+     "sel": ".top, .card, .strip, .features",
+     "shot": "home-1280"
     }
    ],
    "change": [
     {
-     "prop": "поточне посилання",
-     "cur": "#4a5263, без позначки",
-     "tgt": "color.text + підкреслення 2px, aria-current=\"page\"",
-     "token": "color.text",
+     "prop": "spacing values",
+     "cur": "11 of 18 off-scale",
+     "tgt": "4 / 8 / 12 / 16 / 24 / 40px",
+     "token": "space.*",
      "src": "inspect_ui.py"
     }
    ],
    "steps": [
-    "Додати aria-current=\"page\" активному посиланню на кожній сторінці.",
-    "Стилізувати [aria-current=page]: color.text і підкреслення 2px."
+    "Add spacing tokens.",
+    "Replace off-scale values; one page padding (40px at 1280, 16px at 360)."
    ],
-   "metric": "Кожна сторінка позначає свій пункт навігації",
-   "effort": "≈20 хвилин",
-   "risk": "Немає."
+   "metric": "Off-scale spacing values: 0",
+   "effort": "≈2 hours",
+   "risk": "Small shifts; compare screenshots.",
+   "depends": [
+    "T10"
+   ]
   },
-  "14": {
-   "why": "Email і пароль одразу на лендингу — типове місце відпадання; крок «спершу email» може зменшити зусилля на старті. Аналітики форми немає, тож це гіпотеза для тесту після #1 і #9.",
+  "10": {
+   "why": "Buttons use four corner radii: 12 px (Get started), 999 px (Book a demo), 4 px (Submit, Log in) and 6 px (pricing Choose). Four shapes read as four components.",
    "where": [
     {
-     "page": "Головна, реєстрація",
-     "url": "index.html",
-     "vp": "усі",
-     "sel": "#signup",
-     "shot": "home-phone"
+     "page": "Home + pricing",
+     "url": "index.html, pricing.html",
+     "vp": "all",
+     "sel": ".btn, .menu .login",
+     "shot": "home-768"
+    }
+   ],
+   "change": [
+    {
+     "prop": "border-radius (buttons)",
+     "cur": "4 / 6 / 12 / 999px",
+     "tgt": "8px",
+     "token": "radius.md",
+     "src": "inspect_ui.py"
     }
    ],
    "steps": [
-    "Спершу додати події form-start і submit, щоб виміряти поточне відпадання.",
-    "Зробити перший крок лише з email за прапорцем; пароль та ім'я — на кроці 2.",
-    "A/B-тест 2 тижні або до 300 початків реєстрації на варіант."
+    "Add radius.md (8px) and use it on every button.",
+    "Remove per-button overrides."
    ],
-   "metric": "Завершені реєстрації на один початок форми",
-   "effort": "≈3 дні",
-   "risk": "Два кроки можуть здаватися довшими; крок 2 — на тій самій сторінці без перезавантаження.",
+   "metric": "Button radii in use: 1",
+   "effort": "≈30 minutes",
+   "risk": "None."
+  },
+  "11": {
+   "why": "The brand palette is blue (#3156d3) and navy (#1d2433), yet two unrelated oranges appear: the demo button #e8572a and the pricing countdown #d2471d on #fff1ec (4.09:1). Five greys are used for text.",
+   "where": [
+    {
+     "page": "Pricing",
+     "url": "pricing.html",
+     "vp": "all",
+     "sel": "#timer",
+     "shot": "pricing-1280"
+    },
+    {
+     "page": "Home",
+     "url": "index.html",
+     "vp": "all",
+     "sel": ".btn-demo"
+    }
+   ],
+   "change": [
+    {
+     "prop": "accent colours",
+     "cur": "#e8572a, #d2471d",
+     "tgt": "brand blue for actions; one warning colour token if needed",
+     "token": "color.primary",
+     "src": "inspect_ui.py"
+    },
+    {
+     "prop": "text greys",
+     "cur": "5 (#4a5263 #6b7280 #8d94a1 #a3a9b4 #b8bec9)",
+     "tgt": "2 (color.text, color.text-muted)",
+     "src": "inspect_ui.py"
+    }
+   ],
+   "steps": [
+    "Replace the oranges with brand colours (see #3).",
+    "Merge the text greys into two tokens (see #2)."
+   ],
+   "metric": "Off-palette colours: 0",
+   "effort": "≈1 hour",
+   "risk": "None.",
    "depends": [
-    "T01",
-    "T09"
+    "T02"
+   ]
+  },
+  "12": {
+   "why": "At 768 the hero keeps the desktop two-column layout (the breakpoint is 700 px): the 46 px H1 wraps to 4 lines in a 352 px column (199 px tall) while the card sits beside it. The nav shows all 5 items.",
+   "where": [
+    {
+     "page": "Home",
+     "url": "index.html",
+     "vp": "768",
+     "sel": ".hero, .hero h1",
+     "shot": "home-768"
+    }
+   ],
+   "change": [
+    {
+     "prop": "hero layout at 701–1024px",
+     "cur": "two columns, H1 46px",
+     "tgt": "one column, H1 36px",
+     "src": "inspect_ui.py"
+    }
+   ],
+   "steps": [
+    "Move the single-column breakpoint to 1024 px, or scale the H1 with clamp(32px, 5vw, 46px).",
+    "Check 768 and 820."
+   ],
+   "metric": "H1 ≤ 3 lines at 768",
+   "effort": "≈1 hour",
+   "risk": "None."
+  },
+  "13": {
+   "why": "At 360, 9 of 17 tap targets are under 24 px (WCAG 2.5.8): four social links 18×18 and five footer links 14 px high. The menu button is 32×32; only 2 of 17 reach 44×44.",
+   "where": [
+    {
+     "page": "Home",
+     "url": "index.html",
+     "vp": "360",
+     "sel": ".social a, footer a, .burger",
+     "shot": "home-360"
+    }
+   ],
+   "change": [
+    {
+     "prop": "size (.social a, .burger)",
+     "cur": "18×18 / 32×32px",
+     "tgt": "44×44px",
+     "src": "inspect_ui.py"
+    },
+    {
+     "prop": "footer a height",
+     "cur": "14px",
+     "tgt": "≥ 24px",
+     "src": "inspect_ui.py"
+    }
+   ],
+   "steps": [
+    "Make .social a and .burger 44×44 with the icon centred.",
+    "Pad footer links to 24 px tall."
+   ],
+   "metric": "Tap targets ≥ 24 px at 360: 17 of 17",
+   "effort": "≈30 minutes",
+   "risk": "Footer grows ≈ 30 px."
+  },
+  "14": {
+   "why": "At 360 the hero subtitle runs 5 lines (123 px) in pale grey between the H1 and the buttons, pushing the primary button to 60% of the screen.",
+   "where": [
+    {
+     "page": "Home",
+     "url": "index.html",
+     "vp": "360",
+     "sel": ".sub",
+     "shot": "home-360"
+    }
+   ],
+   "change": [
+    {
+     "prop": "subtitle length at 360",
+     "cur": "5 lines",
+     "tgt": "≤ 3 lines (shorter copy or 15px)",
+     "src": "inspect_ui.py"
+    }
+   ],
+   "steps": [
+    "Shorten the subtitle on small screens or drop it to 15 px.",
+    "Check the primary button lands in the top half at 360."
+   ],
+   "metric": "Primary button within the top 55% at 360",
+   "effort": "≈30 minutes",
+   "risk": "Copy change: agree with whoever owns the text."
+  },
+  "15": {
+   "why": "No prefers-color-scheme rules and no color-scheme meta: the page is light only, with colours hard-coded. Nothing breaks; whether users want a dark landing page is unknown.",
+   "where": [
+    {
+     "page": "All pages",
+     "url": "style.css",
+     "vp": "all",
+     "sel": ":root"
+    }
+   ],
+   "steps": [
+    "Move colours to tokens first (#2, #11).",
+    "Decide with product whether a dark theme is worth it for an app the landing leads into."
+   ],
+   "metric": "Decision recorded",
+   "effort": "≈1 day if built",
+   "risk": "Doubles visual QA.",
+   "depends": [
+    "T02",
+    "T11"
+   ]
+  },
+  "16": {
+   "why": "The hero offers three ways in (two buttons and a form). A single-column hero with one CTA and the sign-up card below might lift starts; there is no behaviour data, so this is a hypothesis.",
+   "where": [
+    {
+     "page": "Home",
+     "url": "index.html",
+     "vp": "all",
+     "sel": ".hero",
+     "shot": "home-1280"
+    }
+   ],
+   "steps": [
+    "Add click tracking on the three entry points.",
+    "Run an A/B test for 2 weeks: current vs single-column hero."
+   ],
+   "metric": "Sign-up starts per 100 visits",
+   "effort": "≈2 days",
+   "risk": "Card below the fold may lose sign-ups from returning visitors.",
+   "depends": [
+    "T03"
    ]
   }
  },
@@ -1488,176 +1456,139 @@ code{font:13px/1.4 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;backgrou
   {
    "name": "color.primary",
    "value": "#3156d3",
-   "use": "кнопки, посилання, рамка фокуса"
+   "use": "buttons, links, focus ring"
   },
   {
    "name": "color.text",
    "value": "#1d2433",
-   "use": "заголовки, основний текст"
+   "use": "headings, body"
   },
   {
    "name": "color.text-muted",
    "value": "#6b7280",
-   "use": "другорядний текст (4.83:1)"
+   "use": "secondary text (proposed, 4.83:1)"
   },
   {
    "name": "color.surface",
    "value": "#f6f7fb",
-   "use": "картки"
+   "use": "cards"
   },
   {
    "name": "radius.md",
    "value": "8px",
-   "use": "кнопки, поля (пропозиція)"
+   "use": "buttons, inputs (proposed)"
   },
   {
-   "name": "radius.lg",
-   "value": "12px",
-   "use": "картки (пропозиція)"
-  },
-  {
-   "name": "шкала відступів",
+   "name": "space.*",
    "value": "4 / 8 / 12 / 16 / 24 / 40px",
-   "use": "відступи, проміжки (пропозиція)"
+   "use": "padding, gaps (proposed)"
+  },
+  {
+   "name": "font.size.*",
+   "value": "12 / 14 / 16 / 20 / 28 / 44px",
+   "use": "type scale (proposed)"
   }
  ],
  "answers": [
   {
-   "q": "Які екрани й задача найважливіші?",
-   "a": "Реєстрація на лендингу, потім ціни"
-  },
-  {
-   "q": "Пристрої",
-   "a": "Пропущено. Припущення: приблизно половина візитів з телефонів, тому перевірено обидва в'юпорти",
+   "q": "Which pages matter most?",
+   "a": "Skipped. Assumption: home and pricing",
    "skipped": true
   },
   {
-   "q": "Дизайн-система й обмеження",
-   "a": "Опублікованих токенів немає; бренд-синій #3156d3 лишається"
+   "q": "Devices / dark mode",
+   "a": "Skipped. Assumption: phone and desktop equally; no dark mode",
+   "skipped": true
   },
   {
-   "q": "Що вже відомо",
-   "a": "Пропущено. Припущення: тестів із користувачами й скарг ще не збирали",
+   "q": "Design system and brand",
+   "a": "Skipped. Assumption: infer tokens from CSS; brand blue #3156d3",
+   "skipped": true
+  },
+  {
+   "q": "What is already known",
+   "a": "Skipped. Assumption: nothing",
    "skipped": true
   }
  ],
  "sources": [
   {
-   "name": "Прохід у браузері (desktop + телефон)",
-   "note": "готово",
+   "name": "inspect_ui.py",
+   "note": "home at 3 widths, pricing at 1280",
    "status": "ok"
   },
   {
-   "name": "inspect_ui.py (автоматичні перевірки)",
-   "note": "3 скріншоти",
+   "name": "Page CSS and DOM",
+   "note": "read",
    "status": "ok"
   },
   {
-   "name": "CSS і DOM сторінки",
-   "note": "прочитано",
-   "status": "ok"
-  },
-  {
-   "name": "Відповіді власника (2 з 4)",
-   "note": "2 пропущено",
-   "status": "ok"
-  },
-  {
-   "name": "Дизайн-токени",
-   "note": "виведено з CSS",
+   "name": "Design tokens",
+   "note": "inferred from CSS",
    "status": "demo"
   },
   {
-   "name": "Поведінкова аналітика (Clarity / Hotjar)",
-   "note": "не підключено",
-   "status": "no"
-  },
-  {
-   "name": "Відгуки / тести з користувачами",
-   "note": "немає",
+   "name": "Behaviour analytics",
+   "note": "not connected",
    "status": "no"
   }
  ],
  "glossary": {
   "WCAG": {
-   "g": "стандарт доступності",
-   "d": "Web Content Accessibility Guidelines. Рівень AA — звична юридична ціль у ЄС (EAA) і США. Числа на кшталт 1.4.3 — його критерії успіху."
+   "g": "accessibility standard",
+   "d": "Web Content Accessibility Guidelines. Level AA is the usual legal target. Numbers like 1.4.3 are its success criteria."
   },
   "AA": {
-   "g": "звичний рівень WCAG",
-   "d": "Для контрасту: звичайний текст — 4.5:1, великий (24 px або 18.66 px жирний) — 3:1. #a3a9b4 на білому — 2.36:1."
+   "g": "the usual WCAG level",
+   "d": "Contrast: normal text 4.5:1, large text 3:1, icons and focus rings 3:1. #a3a9b4 on white is 2.36:1."
   },
   "ICE": {
-   "g": "оцінка пріоритету",
-   "d": "Impact × Confidence × Ease: вплив, впевненість і легкість, кожне 1–10. Що більший добуток, то раніше братися."
-  },
-  "inspect_ui.py": {
-   "g": "скрипт вимірювань",
-   "d": "Частина скіла: відкриває сторінку в кожному в'юпорті, знімає скріншоти, читає обчислені стилі й перевіряє контраст, зони дотику, підписи, фокус і дрібний текст."
-  },
-  "зони дотику": {
-   "g": "область, яку можна торкнутися",
-   "d": "Розмір посилання чи кнопки, на який можна натиснути. WCAG 2.5.8 вимагає щонайменше 24×24 px; 44×44 px зручно для пальця."
-  },
-  "Зони дотику": {
-   "g": "область, яку можна торкнутися",
-   "d": "Розмір посилань і кнопок, на які можна натиснути. WCAG 2.5.8 вимагає щонайменше 24×24 px; 44×44 px зручно для пальця."
-  },
-  "фокус": {
-   "g": "де зараз клавіатура",
-   "d": "Елемент, що отримує введення з клавіатури. Видима рамка фокуса показує користувачам клавіатури, де вони (WCAG 2.4.7)."
-  },
-  "скрінрідер": {
-   "g": "програма, що читає UI вголос",
-   "d": "VoiceOver, NVDA, TalkBack. Читає підписи, ролі й стани; поле лише з placeholder часто оголошується просто як «поле редагування»."
-  },
-  "скрінрідерів": {
-   "g": "програми, що читають UI вголос",
-   "d": "VoiceOver, NVDA, TalkBack: читають підписи, ролі й стани елементів."
+   "g": "priority score",
+   "d": "Impact × Confidence × Ease, each 1–10."
   },
   "CTA": {
-   "g": "заклик до дії",
-   "d": "Кнопка з головною дією, тут «Get started free»."
+   "g": "call to action",
+   "d": "The primary button; here “Get started free”."
   },
-  "закон Хіка": {
-   "g": "більше варіантів — повільніший вибір",
-   "d": "Час на рішення росте з кількістю рівноцінних варіантів; дві заливні кнопки плюс форма — це три."
+  "CLS": {
+   "g": "cumulative layout shift",
+   "d": "How much visible content jumps while loading. ≤ 0.1 is good; the demo reaches 0.137 at 360."
   },
-  "dark pattern": {
-   "g": "маніпулятивний дизайн",
-   "d": "Трюк в інтерфейсі, що штовхає людину проти її інтересу: фальшива терміновість, присоромлення, заздалегідь поставлені галочки, приховані платежі."
+  "Tap targets": {
+   "g": "what a finger can hit",
+   "d": "WCAG 2.5.8 asks ≥ 24×24 px; 44×44 px is comfortable."
   },
-  "токен": {
-   "g": "іменоване значення дизайну",
-   "d": "Іменований колір, розмір чи відступ (color.text-muted = #6b7280) замість вписаного вручну значення, тож одна зміна оновлює весь UI."
+  "focus": {
+   "g": "where the keyboard is",
+   "d": "The element that receives keys; a visible ring shows keyboard users where they are (WCAG 2.4.7)."
   },
-  "токенів": {
-   "g": "іменовані значення дизайну",
-   "d": "Іменовані кольори, розміри й відступи замість вписаних вручну значень."
+  "token": {
+   "g": "named design value",
+   "d": "A named colour, size or spacing (color.text-muted = #6b7280) instead of a hard-coded value."
   },
-  "Дизайн-токени": {
-   "g": "іменовані значення дизайну",
-   "d": "Іменовані кольори, розміри й відступи замість вписаних вручну значень."
+  "tokens": {
+   "g": "named design values",
+   "d": "Named colours, sizes and spacing used instead of hard-coded values."
   },
-  "5-секундний тест": {
-   "g": "швидкий тест ієрархії",
-   "d": "Показати екран на 5 секунд і спитати, про що він і що натиснути. Показує, чи працює ієрархія."
+  "inspect_ui.py": {
+   "g": "measurement script",
+   "d": "Part of this skill: screenshots at 3 widths, computed styles, contrast, scale, tap targets, dark and reduced-motion emulation, CLS and a focus walk."
+  },
+  "5-second test": {
+   "g": "quick hierarchy test",
+   "d": "Show the screen for 5 seconds and ask what it was about and what to click."
   },
   "pre-mortem": {
-   "g": "аналіз провалу наперед",
-   "d": "Уявити, що виправлення випустили, а нічого не покращилось, і пояснити чому. Причини стають перевірками, які додають заздалегідь."
+   "g": "failure analysis in advance",
+   "d": "Imagine the fix shipped and nothing improved, then explain why."
   },
-  "A/B-тест": {
-   "g": "порівняльний тест",
-   "d": "Половина відвідувачів бачить нову версію, половина — стару; різниця показує ефект."
+  "A/B test": {
+   "g": "comparison test",
+   "d": "Half the visitors see the new version, half the old."
   },
-  "aria-current": {
-   "g": "позначка поточної сторінки",
-   "d": "Атрибут, що каже скрінрідерам, яке посилання веде на поточну сторінку; також зачіпка для стилю."
-  },
-  "Nielsen": {
-   "g": "евристики юзабіліті",
-   "d": "10 евристик юзабіліті Якоба Нільсена й шкала серйозності 0–4 — стандартний чекліст для UI-рев'ю."
+  "Reflow": {
+   "g": "no sideways scroll",
+   "d": "WCAG 1.4.10: content fits a 320 px wide viewport without scrolling in two directions."
   }
  }
 }
@@ -1668,7 +1599,7 @@ code{font:13px/1.4 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;backgrou
 const UI={
  uk:{locale:"uk-UA",navLenses:"Лінзи",navShots:"Скріншоти",navScreens:"Шлях",navMatrix:"Матриця",navOps:"Проблеми",navNext:"Перші кроки",navPlan:"Повний план",navData:"Дані",
   aNav:"Розділи",aChecks:"Автоматичні перевірки",aStage:"Зрілість UI",aRadar:"Радар оцінок за лінзами",aMatrix:"Матриця вплив–зусилля",aFilter:"Фільтр",
-  lgOk:"Працює",lgWarn:"Є тертя",lgBad:"Блокує задачу",lgHot:"Критично або топ-3",lgMark:"Інші проблеми",fAll:"Усі",fOpt:"Виправлення",fEx:"Переосмислення",fSev:"Серйозні (3–4)",
+  lgOk:"Працює",lgWarn:"Є тертя",lgBad:"Ламає екран",lgHot:"Критично або топ-3",lgMark:"Інші проблеми",fAll:"Усі",fOpt:"Виправлення",fEx:"Переосмислення",fSev:"Серйозні (3–4)",
   thOp:"Проблема",thLens:"Лінза",thSev:"Серйозність",thType:"Тип",
   expand:"Розгорнути всі",collapse:"Згорнути всі",conf:"Впевненість звіту",answers:"Відповіді на старті",tokens:"Дизайн-токени",gloss:"Словник термінів",
   glossHint:"Наведіть курсор на підкреслений термін (на телефоні чи планшеті — торкніться його), щоб побачити пояснення.",how:"Як зроблено це рев'ю",footer:"Згенеровано скілом ui-review",
@@ -1676,11 +1607,11 @@ const UI={
   why:"Чому це тут",where:"Де",change:"Зараз → ціль",prop:"Властивість",cur:"Зараз",tgt:"Ціль",token:"Токен",todo:"Що зробити",metric:"Метрика",effort:"Зусилля",risk:"Ризик",rtype:"Тип ризику",thr:"Поріг успіху",pm:"Pre-mortem",alt:"Розглянуті альтернативи",copy:"Варіанти тексту",
   shot:"скріншот",mark:"позначка",noShot:"скріншот не вкладено",of:"з",
   stageLbl:"Зрілість UI",stages:["Ламається","Придатний","Цілісний","Відшліфований","Приємний"],sevs:["","косметична","незначна","серйозна","критична"],
-  groups:{look:"Видно головне",use:"Задача виконується",reach:"Працює для всіх",words:"Слова допомагають",system:"Одна система"},
+  groups:{look:"Куди йде погляд",structure:"Внутрішній порядок",colour:"Колір і бренд",system:"Одна система",behave:"На різних ширинах і в часі"},
   qWin:"Швидкі перемоги",qBig:"Великі ставки",qSmall:"Дрібниці",qPit:"Пастки часу",axE:"Зусилля →",axI:"Вплив →",noData:"немає даних",target:"ціль"},
  en:{locale:"en-US",navLenses:"Lenses",navShots:"Screenshots",navScreens:"Route",navMatrix:"Matrix",navOps:"Issues",navNext:"First fixes",navPlan:"Full plan",navData:"Data",
   aNav:"Sections",aChecks:"Automatic checks",aStage:"UI maturity",aRadar:"Lens scores radar",aMatrix:"Impact–effort matrix",aFilter:"Filter",
-  lgOk:"Works",lgWarn:"Friction",lgBad:"Blocks the task",lgHot:"Critical or top 3",lgMark:"Other issues",fAll:"All",fOpt:"Fix",fEx:"Rethink",fSev:"Severe (3–4)",
+  lgOk:"Works",lgWarn:"Friction",lgBad:"Breaks the screen",lgHot:"Critical or top 3",lgMark:"Other issues",fAll:"All",fOpt:"Fix",fEx:"Rethink",fSev:"Severe (3–4)",
   thOp:"Issue",thLens:"Lens",thSev:"Severity",thType:"Type",
   expand:"Expand all",collapse:"Collapse all",conf:"Report confidence",answers:"Answers at the start",tokens:"Design tokens",gloss:"Glossary",
   glossHint:"Hover over an underlined term (on a phone or tablet, tap it) to see what it means.",how:"How this review was made",footer:"Generated by ui-review",
@@ -1688,7 +1619,7 @@ const UI={
   why:"Why it is here",where:"Where",change:"Current → target",prop:"Property",cur:"Current",tgt:"Target",token:"Token",todo:"What to do",metric:"Metric",effort:"Effort",risk:"Risk",rtype:"Risk type",thr:"Success threshold",pm:"Pre-mortem",alt:"Alternatives considered",copy:"Copy variants",
   shot:"screenshot",mark:"mark",noShot:"screenshot not attached",of:"of",
   stageLbl:"UI maturity",stages:["Broken","Usable","Consistent","Polished","Delightful"],sevs:["","cosmetic","minor","major","critical"],
-  groups:{look:"See what matters",use:"Get the job done",reach:"Work for everyone",words:"Words that help",system:"One system"},
+  groups:{look:"Where the eye goes",structure:"Underlying order",colour:"Colour and brand",system:"One system",behave:"Across widths and time"},
   qWin:"Quick wins",qBig:"Big bets",qSmall:"Small fixes",qPit:"Time sinks",axE:"Effort →",axI:"Impact →",noData:"no data",target:"target"}
 };
 const L=UI[(document.documentElement.lang||"en").slice(0,2)]||UI.en;
@@ -1730,7 +1661,7 @@ const sw=v=>{const m=String(v).match(COL);return m?`<i class="sw" style="backgro
 document.getElementById("lensList").innerHTML=Object.keys(G).map(g=>{const ls=lenses.filter(l=>l.g==g);return ls.length?`<div class="group"><h3>${G[g]}</h3>${ls.map(l=>`<div class="lens">${ic(l.i)}<span>${l.n||l.k}</span><div class="meter"><i class="${cls(l.s)}" style="width:${l.s}%"></i></div><b>${l.s}</b></div>`).join("")}</div>`:""}).join("");
 // annotated screenshots
 const sh=document.getElementById("shots");
-if(!shots.length)sh.remove();else document.getElementById("shotList").innerHTML=shots.map(s=>{const ar=s.w/s.h,kind=ar>1.2?"wide":ar<.8?"tall":"";return `<figure class="shot ${kind}" id="shot-${s.id}"><div class="frame${s.src?"":" ph"}" style="aspect-ratio:${s.w}/${s.h}">${s.src?`<img src="${s.src}" alt="${s.cap}" loading="lazy">`:`<span class="phl">${L.noShot}</span>`}${(s.marks||[]).map(m=>{const o=ops[m.n-1]||{t:""};return `<a class="mbox${hotId(m.n)?" hot":""}" href="#op-${m.n}" style="left:${m.x}%;top:${m.y}%;width:${m.w}%;height:${m.h}%" aria-label="#${m.n}: ${o.t}"${m.note?` title="${m.note}"`:""}><span>${m.n}</span></a>`}).join("")}</div><figcaption><b>${s.cap}</b>${s.vp?" · "+s.vp:""}${s.url?" · "+s.url:""} · <code>${s.id}</code></figcaption></figure>`}).join("");
+if(!shots.length)sh.remove();else document.getElementById("shotList").innerHTML=shots.map(s=>{const ar=s.w/s.h,kind=ar>1.2?"wide":ar<.8?"tall":"";return `<figure class="shot ${kind}" id="shot-${s.id}"><div class="frame${s.src?"":" ph"}" style="aspect-ratio:${s.w}/${s.h}">${s.src?`<img src="${s.src}" alt="${s.cap}" loading="lazy">`:`<span class="phl">${L.noShot}</span>`}${(s.marks||[]).map(m=>{const o=ops[m.n-1]||{t:""};return `<a class="mbox${hotId(m.n)?" hot":""}" href="#op-${m.n}" style="left:${m.x}%;top:${m.y}%;width:${m.w}%;height:${m.h}%;z-index:${Math.max(1,1000-Math.round(m.w*m.h/10))}" aria-label="#${m.n}: ${o.t}"${m.note?` title="${m.note}"`:""}><span>${m.n}</span></a>`}).join("")}</div><figcaption><b>${s.cap}</b>${s.vp?" · "+s.vp:""}${s.url?" · "+s.url:""} · <code>${s.id}</code></figcaption></figure>`}).join("");
 document.querySelectorAll(".frame img").forEach(im=>im.addEventListener("error",()=>{const f=im.parentElement;f.classList.add("ph");im.replaceWith(Object.assign(document.createElement("span"),{className:"phl",textContent:L.noShot}))}));
 if(!route.length)document.getElementById("screens").remove();
 else{document.getElementById("route").style.setProperty("--n",Math.max(route.length,4));}

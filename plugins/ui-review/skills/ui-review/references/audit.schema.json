@@ -220,8 +220,8 @@
   },
   "lenses": {
    "type": "array",
-   "minItems": 12,
-   "maxItems": 12,
+   "minItems": 13,
+   "maxItems": 13,
    "items": {
     "type": "object",
     "required": [
@@ -243,27 +243,28 @@
       "type": "string",
       "enum": [
        "hier",
+       "cta",
+       "img",
        "grid",
+       "space",
        "type",
        "color",
-       "heur",
-       "nav",
-       "form",
-       "state",
-       "a11y",
+       "dark",
+       "brand",
+       "sys",
        "resp",
-       "copy",
-       "sys"
+       "motion",
+       "perf"
       ]
      },
      "g": {
       "type": "string",
       "enum": [
        "look",
-       "use",
-       "reach",
-       "words",
-       "system"
+       "structure",
+       "colour",
+       "system",
+       "behave"
       ]
      },
      "s": {
@@ -341,7 +342,7 @@
      },
      "vp": {
       "type": "string",
-      "description": "Viewport, e.g. 390×844 phone."
+      "description": "Viewport, e.g. 360×780."
      },
      "w": {
       "type": "number",
@@ -421,17 +422,18 @@
       "type": "string",
       "enum": [
        "hier",
+       "cta",
+       "img",
        "grid",
+       "space",
        "type",
        "color",
-       "heur",
-       "nav",
-       "form",
-       "state",
-       "a11y",
+       "dark",
+       "brand",
+       "sys",
        "resp",
-       "copy",
-       "sys"
+       "motion",
+       "perf"
       ]
      },
      "ln": {
@@ -444,7 +446,7 @@
        "opt",
        "ex"
       ],
-      "description": "opt = fix what is there; ex = rethink (new pattern, redesign, test)."
+      "description": "opt = fix what is there; ex = rethink (new pattern or visual direction that needs a test)."
      },
      "ev": {
       "type": "string",
@@ -548,7 +550,7 @@
         },
         "vp": {
          "type": "string",
-         "description": "Viewport, e.g. 390×844 or 'all'."
+         "description": "Viewport, e.g. 360×780 or 'all'."
         },
         "sel": {
          "type": "string",

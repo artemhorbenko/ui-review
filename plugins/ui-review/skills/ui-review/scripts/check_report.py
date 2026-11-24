@@ -162,8 +162,9 @@ async def check_view(browser, url, name, ctx_args, out):
     mark = await page.query_selector(".mbox")
     if mark:
         href = await mark.get_attribute("href")
-        await mark.scroll_into_view_if_needed()
-        await mark.click()
+        badge = await mark.query_selector("span")
+        await badge.scroll_into_view_if_needed()
+        await badge.click()
         await page.wait_for_timeout(300)
         if not await page.evaluate(f"() => !!document.querySelector('{href}') && document.querySelector('{href}').open"):
             fails.append(f"clicking mark {href} does not open its plan entry")

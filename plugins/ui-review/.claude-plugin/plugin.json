@@ -1,7 +1,7 @@
 {
   "name": "ui-review",
-  "version": "1.0.0",
-  "description": "Review a website or app interface through 12 UI lenses (visual hierarchy, layout and spacing, typography, colour and contrast, usability heuristics, navigation, forms, states and feedback, accessibility, responsive and touch, microcopy, design-system consistency) and deliver a visual report with annotated screenshots, prioritized fixes with current vs target values, and a hands-off brief for AI agents.",
+  "version": "1.1.0",
+  "description": "Review a website or app interface through 13 UI lenses (visual hierarchy, CTA prominence, imagery and icons, layout and grid, spacing rhythm, typography scale, colour and contrast, dark mode, brand coherence, design-system consistency, responsive behaviour at 360/768/1280, motion, perceived performance) with measured values and annotated screenshots; deliver a visual report and a hands-off brief for AI agents with selectors and current vs target values.",
   "author": {
     "name": "Artem Horbenko",
     "url": "https://github.com/artemhorbenko"
@@ -9,5 +9,16 @@
   "homepage": "https://github.com/artemhorbenko/ui-review",
   "repository": "https://github.com/artemhorbenko/ui-review",
   "license": "MIT",
-  "keywords": ["ui", "ux", "design-review", "accessibility", "wcag", "heuristics", "design-system", "report", "handoff"]
+  "keywords": [
+    "ui",
+    "design-review",
+    "visual-design",
+    "accessibility",
+    "wcag",
+    "contrast",
+    "design-system",
+    "responsive",
+    "report",
+    "handoff"
+  ]
 }

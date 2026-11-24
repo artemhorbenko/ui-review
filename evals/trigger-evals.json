@@ -1,18 +1,74 @@
 [
- {"query": "Review the UI of my landing page, here's the URL", "should_trigger": true},
- {"query": "Can you critique this dashboard design? Screenshots attached.", "should_trigger": true},
- {"query": "Check our sign-up form for accessibility and contrast problems", "should_trigger": true},
- {"query": "Подивись на інтерфейс мого сайту і скажи, що виправити", "should_trigger": true},
- {"query": "зроби UI-рев'ю цієї сторінки на телефоні", "should_trigger": true},
- {"query": "Our app looks messy and inconsistent. What should we fix in the UI first?", "should_trigger": true},
- {"query": "Audit these Figma screens against usability heuristics", "should_trigger": true},
- {"query": "Is this page WCAG AA compliant? Give my dev agent a list of fixes.", "should_trigger": true},
- {"query": "Why does my product not grow? Audit the business model", "should_trigger": false},
- {"query": "Write the CSS for a responsive navbar", "should_trigger": false},
- {"query": "What does WCAG stand for?", "should_trigger": false},
- {"query": "Design a logo for my bakery", "should_trigger": false},
- {"query": "Fix this TypeScript error in my React component", "should_trigger": false},
- {"query": "Зроби SEO-аудит мого сайту", "should_trigger": false},
- {"query": "Review my pull request for the checkout service", "should_trigger": false},
- {"query": "Make a landing page for my new app", "should_trigger": false}
+ {
+  "query": "Review the UI of my landing page, here's the URL",
+  "should_trigger": true
+ },
+ {
+  "query": "Can you critique this dashboard design? Screenshots attached.",
+  "should_trigger": true
+ },
+ {
+  "query": "Подивись на інтерфейс мого сайту і скажи, що виправити",
+  "should_trigger": true
+ },
+ {
+  "query": "зроби UI-рев'ю цієї сторінки на телефоні",
+  "should_trigger": true
+ },
+ {
+  "query": "Our app looks messy and inconsistent. What should we fix in the UI first?",
+  "should_trigger": true
+ },
+ {
+  "query": "Audit these Figma screens against usability heuristics",
+  "should_trigger": true
+ },
+ {
+  "query": "Is this page WCAG AA compliant? Give my dev agent a list of fixes.",
+  "should_trigger": true
+ },
+ {
+  "query": "Why does my product not grow? Audit the business model",
+  "should_trigger": false
+ },
+ {
+  "query": "Write the CSS for a responsive navbar",
+  "should_trigger": false
+ },
+ {
+  "query": "What does WCAG stand for?",
+  "should_trigger": false
+ },
+ {
+  "query": "Design a logo for my bakery",
+  "should_trigger": false
+ },
+ {
+  "query": "Fix this TypeScript error in my React component",
+  "should_trigger": false
+ },
+ {
+  "query": "Зроби SEO-аудит мого сайту",
+  "should_trigger": false
+ },
+ {
+  "query": "Review my pull request for the checkout service",
+  "should_trigger": false
+ },
+ {
+  "query": "Make a landing page for my new app",
+  "should_trigger": false
+ },
+ {
+  "query": "Check contrast and spacing on our pricing page at mobile and desktop",
+  "should_trigger": true
+ },
+ {
+  "query": "Why is our sign-up flow losing people between steps?",
+  "should_trigger": false
+ },
+ {
+  "query": "Is our typography and colour usage consistent across the site?",
+  "should_trigger": true
+ }
 ]

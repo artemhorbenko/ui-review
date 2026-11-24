@@ -10,8 +10,8 @@ import json
 import re
 import sys
 
-ICONS = {"hier", "grid", "type", "color", "heur", "nav", "form", "state", "a11y", "resp", "copy", "sys"}
-GROUPS = {"look", "use", "reach", "words", "system"}
+ICONS = {"hier", "cta", "img", "grid", "space", "type", "color", "dark", "brand", "sys", "resp", "motion", "perf"}
+GROUPS = {"look", "structure", "colour", "system", "behave"}
 LANGS = {"uk", "en"}
 STATUSES = {"ok", "demo", "no"}
 TOKENS = re.compile(r"\{(health|qw|n|conf|crit)\}")
@@ -54,8 +54,8 @@ def validate(a):
 
     # lenses
     lenses = a.get("lenses") or []
-    if len(lenses) != 12:
-        W(f"{len(lenses)} lenses instead of 12")
+    if len(lenses) != 13:
+        W(f"{len(lenses)} lenses instead of 13")
     seen_i = set()
     for i, l in enumerate(lenses):
         p = f"lenses[{i}]"
@@ -131,6 +131,11 @@ def validate(a):
                 if mk["w"] < 0.5 or mk["h"] < 0.3:
                     W(f"{q} is very small; make the box cover the whole element")
 
+    widths = {int(s.get("w", 0)) for s in shot_ids.values()}
+    for need in (360, 768, 1280):
+        if shot_ids and need not in widths:
+            W(f"no screenshot {need} px wide: evidence should cover 360, 768 and 1280")
+
     for i, r in enumerate(a.get("screens") or []):
         if r.get("st") not in ("ok", "warn", "bad"):
             E(f"screens[{i}].st must be ok, warn or bad")
@@ -191,7 +196,7 @@ def validate(a):
             if not (w.get("page") or w.get("url")):
                 E(f"{q} needs page or url")
             if not w.get("vp"):
-                E(f"{q} needs vp (viewport, e.g. 390×844 or 'all')")
+                E(f"{q} needs vp (viewport, e.g. 360×780 or 'all')")
             if not (w.get("sel") or w.get("shot")):
                 E(f"{q} needs sel (CSS selector) or shot (screenshot id)")
             if w.get("shot") and w["shot"] not in shot_ids:

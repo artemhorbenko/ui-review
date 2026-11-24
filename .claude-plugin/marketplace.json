@@ -1,6 +1,6 @@
 {
   "name": "ui-review",
-  "description": "UI Review: review a website or app interface through 12 UI lenses and get a visual report with annotated screenshots plus a hands-off brief for AI agents.",
+  "description": "UI Review: review a website or app interface through 13 UI lenses at 360, 768 and 1280 px, and get a visual report with annotated screenshots plus a hands-off brief for AI agents.",
   "owner": {
     "name": "Artem Horbenko",
     "url": "https://github.com/artemhorbenko"
@@ -9,8 +9,8 @@
     {
       "name": "ui-review",
       "source": "./plugins/ui-review",
-      "description": "Review a UI (live site, app, screenshots or Figma) for hierarchy, layout, typography, colour and contrast, usability, navigation, forms, states, accessibility, responsiveness, microcopy and design-system consistency; get an evidence-based, render-checked HTML report with annotated screenshots and a task file for AI agents.",
-      "version": "1.0.0"
+      "description": "Review a UI for visual hierarchy, CTA prominence, imagery and icons, layout and grid, spacing rhythm, typography scale, colour and contrast, dark mode, brand coherence, design-system consistency, responsive behaviour, motion and perceived performance; measured values, annotated screenshots, a render-checked HTML report and a task file for AI agents.",
+      "version": "1.1.0"
     }
   ]
 }

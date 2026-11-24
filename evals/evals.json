@@ -4,18 +4,33 @@
   {
    "id": "demo-fixture",
    "prompt": "Review the UI of evals/fixtures/demo-site/index.html and pricing.html. Skip the questions.",
-   "setup": "Shell with Playwright. The demo site has deliberate problems: placeholder-only fields, password as type=text, *:focus outline none, low-contrast greys, a 1,096 px strip on phones, 18 px social icons, a fake countdown, four button radii, off-scale spacing, no html lang.",
+   "setup": "Shell with Playwright; serve evals/fixtures/demo-site over http. Deliberate UI problems: *:focus outline none, pale greys (2.2–3.1:1), a 1,000+ px feature strip (sideways scroll at 768 and 360), a promo bar inserted after load (CLS > 0.1 at 360), an infinite pulse that ignores reduced motion, mixed icon styles, four button radii, eleven font sizes, off-scale spacing, two off-palette oranges.",
    "expectations": [
-    "inspect_ui.py is run for both pages; checks use its pass counts with src naming it",
-    "Labels, focus, contrast, sideways scroll, tap targets and the fake countdown are all found",
-    "Missing labels and invisible focus get severity 4 and land in the top 3",
-    "Every task has where (page/URL, viewport, selector or shot) and measured current values",
-    "Every mark sits on the element its issue names (look at the built report)",
+    "inspect_ui.py runs at 360, 768 and 1280; checks cite it as src",
+    "Focus, contrast, sideways scroll, layout shift, motion, icon styles, radii, type scale and spacing are all found",
+    "Invisible focus is severity 4 and in the top 3",
+    "Placeholder-only labels, password type and 'Submit' copy are noted as out of scope (ux-review), not issues",
+    "Every task has where and measured current values; every mark sits on its element",
     "validate_audit.py, check_report.py pass; build_handoff.py writes handoff.md and tasks.json"
    ],
    "forbidden": [
-    "A contrast ratio, size or count that is not in the inspect_ui.py output",
-    "Recommending to keep the countdown in any form that is not a real deadline"
+    "A contrast ratio, size or count not in the inspect output",
+    "Treating the fake countdown as a UI fix instead of pointing to ux-review / product-lens-audit"
+   ]
+  },
+  {
+   "id": "browser-only-real-site",
+   "prompt": "Review talkable-like-site.com home, pricing, demo and case-study pages. English report + handoff, private artifact.",
+   "setup": "The sandbox cannot reach the site; Claude in Chrome is available but its window cannot be resized (fullscreen, page zoom 80%).",
+   "expectations": [
+    "The probe is pasted into the browser and run inside a same-origin iframe at exactly 360, 768 and 1280",
+    "Screenshots are cropped to the iframe and resized to the exact width",
+    "inspect_ui.py from the sandbox is listed as 'no' with the reason",
+    "Automatic contrast false positives (hidden labels, layered backgrounds) are not reported as issues",
+    "No form is submitted"
+   ],
+   "forbidden": [
+    "Measurements taken at the window's real width presented as 1280"
    ]
   },
   {
@@ -24,7 +39,7 @@
    "setup": "Claude app with a browser tool but no code execution. The person skips every question.",
    "expectations": [
     "Each start question appears in answers with skipped=true and an assumption",
-    "Values come from getComputedStyle / getBoundingClientRect in the browser, or the source is marked demo",
+    "Values come from scripts/probe.js pasted into the browser, or the source is marked demo",
     "Checks that could not be run are shown with v:null, and the missing tool is a 'no' source",
     "The report is built by copying the template and replacing the JSON block; shots without src show placeholder frames with marks"
    ],
@@ -39,7 +54,7 @@
    "expectations": [
     "Marks are placed on the screenshots by eye and kept generous; shots use the given files",
     "Colour values read off the images are labelled approximate and the source is demo",
-    "Hover, focus, keyboard and screen-reader findings are hypotheses or absent, never observed",
+    "Focus, motion, CLS and dark mode are hypotheses or 'no data', never observed",
     "where uses the screen name and shot id instead of a CSS selector"
    ],
    "forbidden": [

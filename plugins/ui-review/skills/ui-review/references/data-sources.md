@@ -15,47 +15,51 @@ Confidence in the report is the average of ok = 1, demo = 0.6, no = 0, so list o
 ## What to look for and what to ask it
 
 ### Browser (the main source)
-- **Tools:** Claude in Chrome, the built-in browser, a cloud browser, or Playwright from the shell (`scripts/inspect_ui.py`).
-- **Do:** open each key screen at **desktop 1280×800** and **phone 390×844** (add **tablet 820×1180** for apps used on tablets). Walk the main task end to end. Take a screenshot of every screen in every viewport and give it an id (`home-desktop`). Hover and focus the primary controls; tab through the page once with the keyboard; resize to 360 px once.
-- **Measure, don't eyeball:** read computed styles (colour, background, font size, line height, padding, radius, size) for every element you flag. With a shell, `python scripts/inspect_ui.py URL --sel name=css ...` does this and also runs the automatic checks below. With a browser tool only, read the same values with a small script (`getComputedStyle`, `getBoundingClientRect`).
-- **Don't:** submit real forms, payments, sign-ups or messages. Fill fields to see validation, then leave.
-- **Fallback:** the owner's screenshots or a screen recording; mark measured values from them `demo`.
+- **Tools:** Playwright from the shell (`scripts/inspect_ui.py`), Claude in Chrome, the built-in browser, or a cloud browser.
+- **Do:** open each key page at **360×780**, **768×1024** and **1280×800**. Screenshot the first screen at each width and every section a finding is about, and give each an id (`pricing-768`). Hover and focus the primary controls; tab through once.
+- **Exact widths without a resizable window:** write a page on the same site that holds an `<iframe>` of the exact width and height (`document.open(); document.write('<iframe src="/" width="360" height="780">')`), run `scripts/probe.js` inside `iframe.contentWindow`, and screenshot the frame. Media queries follow the frame's width. Fixed elements are fixed to the frame, as on a phone.
+- **Measure, don't eyeball:** the probe returns computed styles, boxes, contrast, scale, CLS/LCP and more; quote its numbers.
+- **Don't:** submit forms, sign up, pay or send anything; dismiss cookie banners only with "reject" or "necessary only".
+- **Fallback:** the owner's screenshots or a recording; mark measured values from them `demo`.
 - **Feeds:** all lenses.
 
 ### Automatic checks (with a shell)
-- **Tool:** `scripts/inspect_ui.py` (Playwright). Per viewport it reports:
+- **Tool:** `scripts/inspect_ui.py` (Playwright) or `scripts/probe.js` in a browser. Per viewport they report:
   - text contrast pairs that pass WCAG AA, with the failing ones (text, selector, ratio, needed ratio, colours);
   - touch targets under 24×24 px (WCAG 2.5.8 minimum) and under 44×44 px (comfortable) on touch viewports;
-  - text under 12 px; images without `alt`; form fields without an accessible name; sideways scroll; missing `lang`;
-  - for each `--sel`, the element's box as % of the screenshot (for marks) and its computed styles (for current values).
+  - text under 12 px; images without `alt`; icon-only links and buttons without a name; sideways scroll; missing `lang`;
+  - for each `--sel`, the element's box as % of the screenshot (for marks) and its computed styles (for current values);
+  - the scale in use: distinct font sizes, weights, families, text and background colours, radii, spacing values on / off a 4 px scale;
+  - `prefers-color-scheme` and `prefers-reduced-motion` rules, running and infinite animations, CLS and LCP, fixed bars as a share of the screen.
 - **Other tools if present:** axe-core, Lighthouse (accessibility and CLS), Pa11y. Record their version and the page.
 - **Know the limits:** contrast over images and gradients cannot be computed (reported as `unknown`); automatic checks find maybe a third of accessibility problems; keyboard and screen-reader checks stay manual.
-- **Feeds:** colour, accessibility, responsive, typography, forms.
+- **Feeds:** colour, type, spacing, consistency, responsive, motion, perceived performance, dark mode.
+- **Cross-origin stylesheets** cannot be read for dark-mode and reduced-motion rules (`css.unreadable`); then emulate the media feature and compare instead.
 
 ### Design source and tokens
 - **Tools:** a Figma connector (Dev Mode variables, styles), Storybook, the repo's CSS variables / Tailwind config / theme file, a design-system site.
 - **Queries:** colour, type, spacing, radius and shadow tokens with their values; the components for buttons, inputs, cards; which screens exist in design but differ in production.
 - **Watch for:** production values that match no token (hard-coded); two tokens with the same value; tokens named by colour instead of role.
 - **Fallback:** derive the de-facto palette and scale from computed styles on 3-5 screens and say they are inferred.
-- **Feeds:** design-system consistency, colour, typography, layout. Record useful ones in `tokens` in `audit.json`; target values should name a token when one exists.
+- **Feeds:** design-system consistency, brand coherence, colour, typography, spacing. Record useful ones in `tokens` in `audit.json`; target values should name a token when one exists.
 
 ### Behaviour analytics
 - **Tools:** Microsoft Clarity, Hotjar, FullStory, PostHog, GA4 (events), Amplitude, Mixpanel.
 - **Queries, last 30-90 days:** rage clicks and dead clicks by element; scroll depth on key pages; form-field drop-off; error events; device split (how much traffic is phone).
 - **Fallback:** heatmap or dashboard screenshots with the date range visible.
 - **Polluted data:** own team's sessions, bots (0-second sessions), one campaign spike.
-- **Feeds:** hierarchy, forms, states, responsive; Impact scores.
+- **Feeds:** CTA prominence, hierarchy, responsive; Impact scores. Flow problems you see here go to ux-review.
 
 ### User feedback
 - **Tools:** Intercom, Zendesk, app store reviews, survey tools, usability-test notes.
 - **Queries:** tickets and reviews that mention a screen, a button or "can't find"; 2-3 short quotes.
 - **Fallback:** the owner's summary ("people keep asking where the export is").
-- **Feeds:** navigation, microcopy, heuristics; Confidence scores.
+- **Feeds:** Confidence scores; complaints about looks, readability, broken layouts.
 
 ### Performance and stability
 - **Tools:** PageSpeed Insights / Lighthouse, CrUX, Sentry, Web Vitals in analytics.
 - **Queries:** CLS and INP on key pages, JavaScript errors on the main task.
-- **Feeds:** states and feedback, responsive.
+- **Feeds:** perceived performance, motion.
 
 ## Recording values
 

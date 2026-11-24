@@ -1,56 +1,56 @@
-# The 12 UI lenses
+# The 13 UI lenses
 
-Go through every lens for every screen you captured. For each lens write 1-3 findings tied to something you actually saw (a screenshot region, a measured value, a selector), and score the lens 0-100: below 40 = big problems, 40-60 = partial, above 60 = solid. Scores are judgments; base each on findings and be consistent across screens.
+Scope: what the interface looks like and how its surface behaves. Task flows, forms, navigation logic and copy belong to **ux-review**; strategy, growth and business model to **product-lens-audit**. If you find something outside the scope, note it in one line in `text.dataP` and point to the other skill instead of making it an issue.
 
-Each lens has an icon id (`i`) and a group id (`g`) used in `audit.json`.
+Go through every lens for every screen you captured at 360, 768 and 1280 px. For each lens write 1-3 findings tied to something you saw or measured (a screenshot region, a computed value, a selector), and score the lens 0-100: below 40 = big problems, 40-60 = partial, above 60 = solid. Scores are judgments; base each on findings and keep them consistent across screens.
 
-## Group `look` - Can people see what matters?
+Each lens has an id (`i`) and a group id (`g`) used in `audit.json`.
 
-| Lens | `i` | The question | What to check |
+## Group `look` - Does the eye go where it should?
+
+| Lens | `i` | The question | What to measure or check |
 |---|---|---|---|
-| **Visual hierarchy** | `hier` | Does the eye land on the most important thing first? | One primary action per screen; heading sizes step down clearly; squint test (blur the screenshot: what stays visible?); competing CTAs of equal weight; F/Z reading pattern on content pages. |
-| **Layout and spacing** | `grid` | Is there a consistent grid and spacing rhythm? | Spacing values on a scale (4/8 px or the product's tokens); alignment to one grid; related things closer than unrelated (proximity); line length 45-90 characters; crowding or dead space. |
-| **Typography** | `type` | Is text easy to read at every size? | Body text ≥ 16 px on phone (≥ 14 px for dense UI); line height 1.4-1.6 for body; 2-3 sizes per screen, not 7; weights that mean something; truncation and wrapping of long words (and Cyrillic/German strings). |
-| **Colour and contrast** | `color` | Does colour carry meaning, and can everyone read it? | WCAG 2.2 AA: text 4.5:1, large text (≥ 24 px, or ≥ 18.66 px bold) 3:1, UI parts and focus rings 3:1; one accent used for one meaning; status not shown by colour alone; dark mode. |
+| **Visual hierarchy** | `hier` | Does the eye land on the most important thing first? | Heading sizes step down clearly (ratio between levels); one dominant element per screen; squint test (blur the screenshot: what stays?); competing elements of equal weight. |
+| **CTA prominence** | `cta` | Is the primary action the most visible control, everywhere? | Size, colour, contrast and position of the primary button vs others; one filled primary per view; above the fold at 360 and 1280; label contrast ≥ 4.5:1 (or ≥ 3:1 for large text). |
+| **Imagery and icons** | `img` | Do images and icons look like one set and earn their place? | One icon style (stroke vs filled, weight, size grid); image quality and crop at each width; decorative vs meaningful images (`alt=""` vs real alt); icons with ≥ 3:1 contrast (WCAG 1.4.11). |
 
-## Group `use` - Can people get the job done?
+## Group `structure` - Is there an underlying order?
 
-| Lens | `i` | The question | What to check |
+| Lens | `i` | The question | What to measure or check |
 |---|---|---|---|
-| **Usability heuristics** | `heur` | Does the UI follow Nielsen's 10 heuristics? | Visibility of system status, match with the real world, user control (undo, cancel), consistency, error prevention, recognition over recall, flexibility, minimalism, error recovery, help. Name the heuristic in the finding. |
-| **Navigation and IA** | `nav` | Do people know where they are and where to go? | Current page shown in nav; labels in users' words; depth of key tasks (clicks to the core action); back and breadcrumbs; search; nothing important only in a hover menu. |
-| **Forms and input** | `form` | Can people fill it in without errors? | Visible labels (not placeholder-only); correct input types and `autocomplete`; inline validation after the field, not on every keystroke; error text that says how to fix; required/optional marked; one column. |
-| **States and feedback** | `state` | Does every action get a clear response? | Hover, focus, active, disabled states; loading and skeletons; empty states that say what to do next; error and success messages; layout shift (CLS) when content loads. |
+| **Layout and grid** | `grid` | Do things sit on a consistent grid? | Content width and margins at each width; columns and gutters; edges that line up between sections; line length 45-90 characters. |
+| **Spacing rhythm** | `space` | Do paddings, gaps and margins follow one scale? | Distinct spacing values (from computed styles) and how many fall on a 4/8 px scale; vertical rhythm between sections; proximity (related things closer). |
+| **Typography scale** | `type` | Is there a clear, limited type scale? | Distinct font sizes and weights in use; ratio between steps; body ≥ 16 px on phones; line height 1.4-1.6 for body; nothing under 12 px. |
 
-## Group `reach` - Does it work for everyone, everywhere?
+## Group `colour` - Does colour work and stay on-brand?
 
-| Lens | `i` | The question | What to check |
+| Lens | `i` | The question | What to measure or check |
 |---|---|---|---|
-| **Accessibility** | `a11y` | Can people with disabilities use it? | Keyboard path and visible focus; landmarks and heading order; alt text; accessible names for icon buttons; `lang`; zoom to 200% without loss; reduced motion. Cite the WCAG success criterion (e.g. 1.4.3, 2.4.7, 2.5.8). |
-| **Responsive and touch** | `resp` | Does it hold up on a phone and a tablet? | No sideways scroll at 360-390 px; touch targets ≥ 24×24 px (WCAG 2.5.8) and ideally ≥ 44×44 px; sticky elements that eat the screen; tables and long words; thumb reach for the primary action. |
-
-## Group `words` - Do the words help?
-
-| Lens | `i` | The question | What to check |
-|---|---|---|---|
-| **Microcopy and trust** | `copy` | Do labels, buttons and messages say what happens next, honestly? | Buttons as verbs with an object ("Create invoice", not "Submit"); error text in plain words; consistent terms; no fake urgency, confirmshaming, pre-checked consent or hidden costs (dark patterns); real proof, no invented testimonials. |
+| **Colour and contrast** | `color` | Can everyone read it? | WCAG 2.2 AA: text 4.5:1, large text 3:1, UI parts and icons 3:1; text over images and gradients (measure the worst spot); status not by colour alone. |
+| **Dark mode** | `dark` | If the product follows the system theme, does the dark version hold up? | `prefers-color-scheme` rules present; screenshot with dark emulated; contrast and images in dark. If there is no dark mode, say so and score what exists honestly (a light-only marketing site can score 60+ when nothing breaks under forced dark modes). |
+| **Brand coherence** | `brand` | Does every screen look like the same brand? | Palette in use vs brand colours (count off-palette colours); logo use; one type family set; illustration and photo style consistent across pages. |
 
 ## Group `system` - Is it built from one system?
 
-| Lens | `i` | The question | What to check |
+| Lens | `i` | The question | What to measure or check |
 |---|---|---|---|
-| **Design-system consistency** | `sys` | Are the same things made the same way? | Count variants: button styles, radii, shadows, greys, font sizes, spacing values; hard-coded values instead of tokens; the same component behaving differently on two screens. Record the token each fix should use. |
+| **Consistency with its design system** | `sys` | Are the same things made the same way? | Count variants: button styles, radii, shadows, greys, font sizes; the same component looking different on two pages; values that match no token. Record the token each fix should use. |
+
+## Group `behave` - Does it hold up across widths and over time?
+
+| Lens | `i` | The question | What to measure or check |
+|---|---|---|---|
+| **Responsive behaviour** | `resp` | Does it work at 360, 768 and 1280 px? | No sideways scroll; nothing clipped or overlapped; tap targets ≥ 24×24 px (WCAG 2.5.8), ideally 44×44; fixed headers and banners as a share of the screen; images and tables at each width. |
+| **Motion** | `motion` | Does motion help, and can it be turned off? | Autoplay carousels and looping animations; `prefers-reduced-motion` rules present; durations (150-400 ms for UI); nothing flashes more than 3 times a second. |
+| **Perceived performance** | `perf` | Does the page feel stable and fast? | Cumulative layout shift (CLS ≤ 0.1), largest contentful paint (LCP ≤ 2.5 s, measured on your connection - say so), skeletons or loading states, images with width/height, fonts that swap without jumping. |
 
 ## Supporting concepts
 
-- **Severity** (Nielsen, 1-4): 1 cosmetic, 2 minor, 3 major (slows or confuses most users), 4 critical (blocks a task or excludes a group of users). Severity says how bad the problem is; ICE says what to do first.
-- **UI maturity** (for the header strip, 0-4): Broken (a key task cannot be done) -> Usable (tasks work, with friction) -> Consistent (one system, few variants) -> Polished (states, details, accessibility) -> Delightful (motion, personality, anticipation). Name the current level from evidence, and say what blocks the next one. Polishing animations on a Broken product is itself a finding.
-- **Squint test, 5-second test, first-click test**: cheap tests for hierarchy; use them as the "cheapest test" in plans.
-- **Gestalt** proximity, similarity, alignment; **Fitts's law** (big and near = fast); **Hick's law** (more choices = slower); **Jakob's law** (people expect your UI to work like the others they use).
-- **HEART** (Google) for choosing UI metrics: happiness, engagement, adoption, retention, task success.
-
-If specialized skills or tools are installed (an accessibility audit, a design-system linter, a Figma connector), name them as the next step for a deep dive instead of duplicating their work.
+- **Severity** (Nielsen, 1-4): 1 cosmetic, 2 minor, 3 major (hurts most users or one group badly), 4 critical (content cannot be read or used). Severity says how bad; ICE says what to do first. A severity-4 issue gets Impact 8 or more.
+- **UI maturity** (header strip, 0-4): Broken (content unreadable or unusable at some width) -> Usable -> Consistent (one system, few variants) -> Polished (states, motion, dark, details) -> Delightful. Name the level from evidence and say what blocks the next one.
+- **Squint test, 5-second test**: cheap hierarchy tests; good "cheapest test" entries in plans.
+- **Gestalt** proximity, similarity, alignment; **Fitts's law** (big and near = fast to hit); **modular scale** (type sizes in a steady ratio such as 1.25).
 
 ## Weighting
 
-Weight lenses by what the product is: forms and states matter most in a SaaS app; hierarchy, copy and responsive in a landing page; navigation and typography in a content site; accessibility always (it is a legal requirement in many markets: EAA in the EU since June 2025, ADA in the US). A severity-4 finding gets Impact 8 or more, so it lands near the top of the ICE ranking; `validate_audit.py` warns when it does not.
+Weight by what the product is: CTA prominence, hierarchy and imagery matter most on marketing pages; spacing, type scale and consistency in apps and dashboards; responsive everywhere. Contrast failures on text people need are at least severity 3.
