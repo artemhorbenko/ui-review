@@ -12,7 +12,6 @@ Scope and evidence reworked to match the spec: UI only, measured at three widths
 - **Fact check** is the last step of the process, after the render check.
 - Report: new lens icons and groups; a large mark no longer blocks clicks on smaller marks inside it (badges are the click targets, smaller boxes sit on top); `check_report.py` clicks the badge.
 - New demo: the Tallyo fixture gained a late promo bar (layout shift), an infinite pulse that ignores reduced motion and mixed icon styles; English example audit, hands-off and screenshots at three widths. The Ukrainian example was dropped; the Ukrainian interface labels stay.
-- First real run logged in `evals/results.md` (site not named).
 
 ## 1.0.0 - 2026-11-24
 

@@ -20,7 +20,7 @@
   },
   {
    "id": "browser-only-real-site",
-   "prompt": "Review talkable-like-site.com home, pricing, demo and case-study pages. English report + handoff, private artifact.",
+   "prompt": "Review b2b-saas.example home, pricing, demo and case-study pages. English report + handoff, private artifact.",
    "setup": "The sandbox cannot reach the site; Claude in Chrome is available but its window cannot be resized (fullscreen, page zoom 80%).",
    "expectations": [
     "The probe is pasted into the browser and run inside a same-origin iframe at exactly 360, 768 and 1280",
