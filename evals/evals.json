@@ -1,0 +1,88 @@
+{
+ "skill_name": "ui-review",
+ "evals": [
+  {
+   "id": "demo-fixture",
+   "prompt": "Review the UI of evals/fixtures/demo-site/index.html and pricing.html. Skip the questions.",
+   "setup": "Shell with Playwright. The demo site has deliberate problems: placeholder-only fields, password as type=text, *:focus outline none, low-contrast greys, a 1,096 px strip on phones, 18 px social icons, a fake countdown, four button radii, off-scale spacing, no html lang.",
+   "expectations": [
+    "inspect_ui.py is run for both pages; checks use its pass counts with src naming it",
+    "Labels, focus, contrast, sideways scroll, tap targets and the fake countdown are all found",
+    "Missing labels and invisible focus get severity 4 and land in the top 3",
+    "Every task has where (page/URL, viewport, selector or shot) and measured current values",
+    "Every mark sits on the element its issue names (look at the built report)",
+    "validate_audit.py, check_report.py pass; build_handoff.py writes handoff.md and tasks.json"
+   ],
+   "forbidden": [
+    "A contrast ratio, size or count that is not in the inspect_ui.py output",
+    "Recommending to keep the countdown in any form that is not a real deadline"
+   ]
+  },
+  {
+   "id": "skip-all-no-shell",
+   "prompt": "Review the UI of example.com, no questions please.",
+   "setup": "Claude app with a browser tool but no code execution. The person skips every question.",
+   "expectations": [
+    "Each start question appears in answers with skipped=true and an assumption",
+    "Values come from getComputedStyle / getBoundingClientRect in the browser, or the source is marked demo",
+    "Checks that could not be run are shown with v:null, and the missing tool is a 'no' source",
+    "The report is built by copying the template and replacing the JSON block; shots without src show placeholder frames with marks"
+   ],
+   "forbidden": [
+    "Claiming inspect_ui.py results when no shell was available"
+   ]
+  },
+  {
+   "id": "screenshots-only",
+   "prompt": "Here are 5 screenshots of our mobile app's checkout. What should we fix?",
+   "setup": "No browser, no connectors. Files: 5 PNG screenshots, 1170×2532.",
+   "expectations": [
+    "Marks are placed on the screenshots by eye and kept generous; shots use the given files",
+    "Colour values read off the images are labelled approximate and the source is demo",
+    "Hover, focus, keyboard and screen-reader findings are hypotheses or absent, never observed",
+    "where uses the screen name and shot id instead of a CSS selector"
+   ],
+   "forbidden": [
+    "Claiming to have opened the live app",
+    "Exact contrast ratios presented as measured"
+   ]
+  },
+  {
+   "id": "design-system",
+   "prompt": "Review our dashboard UI against our design system. Tokens are in src/styles/tokens.css.",
+   "setup": "Repo with a tokens file; the app runs at localhost.",
+   "expectations": [
+    "tokens in audit.json come from the tokens file and the source is ok",
+    "Target values name existing tokens; no new colours are invented when a token fits",
+    "Hard-coded values that match no token are reported under design-system consistency with a count"
+   ]
+  },
+  {
+   "id": "login-wall",
+   "prompt": "Review the settings page of app.example.com",
+   "setup": "The page needs a login the agent does not have.",
+   "expectations": [
+    "The agent does not try to sign up or guess credentials; it asks the person to sign in or send screenshots",
+    "The browser source is marked no for the logged-in screens, and confidence drops"
+   ]
+  },
+  {
+   "id": "english-handoff",
+   "prompt": "Review app.example.com/onboarding and give me a task file my coding agent can work through. English, please.",
+   "expectations": [
+    "lang is en; handoff.md and tasks.json are delivered next to the report with the screenshots they reference",
+    "Tasks are ordered by ICE with dependencies first; each has acceptance criteria and how to verify",
+    "Selectors in where actually match an element on the page (inspect_ui.py --sel finds them)"
+   ]
+  },
+  {
+   "id": "rerun",
+   "prompt": "Re-review the site after our fixes, here is last month's audit.json.",
+   "setup": "A previous audit.json is attached and some fixes shipped.",
+   "expectations": [
+    "The report says which tasks were done and how each check moved (e.g. contrast 60/97 -> 95/97)",
+    "Start questions already answered in the previous audit are not asked again"
+   ]
+  }
+ ]
+}

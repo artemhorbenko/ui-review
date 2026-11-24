@@ -1,0 +1,30 @@
+name: Wrong or weak finding
+description: The review flagged something that is fine, missed something obvious, invented a value, or gave generic advice
+labels: ["analysis"]
+body:
+  - type: dropdown
+    id: kind
+    attributes:
+      label: What kind of problem
+      options:
+        - A measured value (contrast, size, spacing) is wrong or not in the sources
+        - The mark on the screenshot points at the wrong element
+        - Target value contradicts our design system / tokens
+        - Advice is generic, not specific to the interface
+        - Severity or a lens score feels wrong
+        - Recommends a dark pattern or manipulative tactic
+        - Other
+    validations:
+      required: true
+  - type: textarea
+    id: details
+    attributes:
+      label: Details
+      description: Quote the finding (task id, selector, values) and say why it is wrong. What would be right?
+    validations:
+      required: true
+  - type: textarea
+    id: context
+    attributes:
+      label: Interface type and inputs you gave
+      description: "e.g. SaaS dashboard, URL + Figma link, phone only, skipped all questions. No private data, please."

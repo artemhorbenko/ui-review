@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Tallyo — pricing</title><link rel="stylesheet" href="style.css"></head>
+<body>
+<header class="top">
+ <a class="logo" href="index.html">tally<b>o</b></a>
+ <nav class="menu"><a href="#">Features</a><a href="pricing.html">Pricing</a><a href="#">Customers</a><a href="#">Blog</a><a class="login" href="#">Log in</a><button class="burger">☰</button></nav>
+</header>
+<main class="pricing">
+ <h1>Simple pricing</h1>
+ <span class="timer" id="timer">🔥 Launch offer ends in 09:59</span>
+ <div class="plans">
+  <div class="plan"><h2>Solo</h2><div class="price">$0<small>/mo</small></div><ul><li>5 clients</li><li>Invoices &amp; reminders</li></ul><a class="btn" href="#">Choose</a></div>
+  <div class="plan pop"><h2>Studio</h2><div class="price">$12<small>/mo per seat</small></div><ul><li>Unlimited clients</li><li>Recurring invoices</li><li>Expense receipts</li></ul><a class="btn" href="#">Choose</a></div>
+  <div class="plan"><h2>Agency</h2><div class="price">$29<small>/mo per seat</small></div><ul><li>Everything in Studio</li><li>Client portal</li><li>Priority support</li></ul><a class="btn" href="#">Choose</a></div>
+ </div>
+ <p class="vat">Prices exclude VAT. Billed annually.</p>
+</main>
+<script>/* fake urgency, deliberately: resets on every load */let s=599;setInterval(()=>{s=s>0?s-1:599;document.getElementById('timer').textContent='🔥 Launch offer ends in '+String(Math.floor(s/60)).padStart(2,'0')+':'+String(s%60).padStart(2,'0')},1000)</script>
+</body>
+</html>

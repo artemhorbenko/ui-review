@@ -1,0 +1,738 @@
+{
+ "$schema": "https://json-schema.org/draft/2020-12/schema",
+ "title": "ui-review report data",
+ "type": "object",
+ "required": [
+  "lang",
+  "text",
+  "lenses",
+  "ops",
+  "detail",
+  "plans",
+  "sources"
+ ],
+ "properties": {
+  "lang": {
+   "type": "string",
+   "enum": [
+    "uk",
+    "en"
+   ],
+   "description": "Report language; picks interface labels."
+  },
+  "title": {
+   "type": "string",
+   "description": "Browser tab title."
+  },
+  "text": {
+   "type": "object",
+   "description": "Report's own text. Tokens {health} {qw} {n} {conf} {crit} are replaced; [[words]] are highlighted in red. A missing or empty key removes that element.",
+   "properties": {
+    "label": {
+     "type": "string"
+    },
+    "headline": {
+     "type": "string"
+    },
+    "lead": {
+     "type": "string"
+    },
+    "checksNote": {
+     "type": "string"
+    },
+    "lensesH": {
+     "type": "string"
+    },
+    "lensesP": {
+     "type": "string"
+    },
+    "shotsH": {
+     "type": "string"
+    },
+    "shotsP": {
+     "type": "string"
+    },
+    "screensH": {
+     "type": "string"
+    },
+    "screensP": {
+     "type": "string"
+    },
+    "matrixH": {
+     "type": "string"
+    },
+    "matrixP": {
+     "type": "string"
+    },
+    "opsH": {
+     "type": "string"
+    },
+    "opsP": {
+     "type": "string"
+    },
+    "nextH": {
+     "type": "string"
+    },
+    "nextP": {
+     "type": "string"
+    },
+    "planH": {
+     "type": "string"
+    },
+    "planP": {
+     "type": "string"
+    },
+    "dataH": {
+     "type": "string"
+    },
+    "dataP": {
+     "type": "string"
+    },
+    "footer": {
+     "type": "string"
+    },
+    "how": {
+     "type": "array",
+     "items": {
+      "type": "string"
+     }
+    }
+   }
+  },
+  "kpis": {
+   "type": "array",
+   "maxItems": 4,
+   "items": {
+    "type": "object",
+    "required": [
+     "v",
+     "l"
+    ],
+    "properties": {
+     "v": {
+      "type": "string",
+      "description": "Value; may use tokens."
+     },
+     "l": {
+      "type": "string"
+     },
+     "hot": {
+      "type": "boolean"
+     },
+     "src": {
+      "type": "string",
+      "description": "Name of the source the number came from; required for literal numbers."
+     }
+    }
+   }
+  },
+  "checks": {
+   "type": "array",
+   "description": "Measured checks vs a target, drawn as bars in the header: v of b pass, against target t %. v null = no data.",
+   "items": {
+    "type": "object",
+    "required": [
+     "l",
+     "t"
+    ],
+    "properties": {
+     "l": {
+      "type": "string"
+     },
+     "v": {
+      "type": [
+       "number",
+       "null"
+      ]
+     },
+     "b": {
+      "type": [
+       "number",
+       "null"
+      ]
+     },
+     "t": {
+      "type": "number",
+      "description": "Target pass rate, %."
+     },
+     "sub": {
+      "type": "string"
+     },
+     "src": {
+      "type": "string",
+      "description": "Source name; required when v is a number."
+     },
+     "hot": {
+      "type": "boolean"
+     }
+    }
+   }
+  },
+  "funnel": {
+   "type": "array",
+   "minItems": 2,
+   "description": "Optional task-flow funnel (use instead of checks when step numbers exist). First item is the base and is not drawn.",
+   "items": {
+    "type": "object",
+    "required": [
+     "l",
+     "n"
+    ],
+    "properties": {
+     "l": {
+      "type": "string"
+     },
+     "n": {
+      "type": [
+       "number",
+       "null"
+      ]
+     },
+     "hot": {
+      "type": "boolean"
+     },
+     "note": {
+      "type": "string"
+     },
+     "sub": {
+      "type": "string"
+     }
+    }
+   }
+  },
+  "maturity": {
+   "type": "object",
+   "required": [
+    "cur",
+    "note"
+   ],
+   "properties": {
+    "cur": {
+     "type": "integer",
+     "minimum": 0,
+     "maximum": 4,
+     "description": "0 Broken, 1 Usable, 2 Consistent, 3 Polished, 4 Delightful."
+    },
+    "note": {
+     "type": "string"
+    }
+   }
+  },
+  "lenses": {
+   "type": "array",
+   "minItems": 12,
+   "maxItems": 12,
+   "items": {
+    "type": "object",
+    "required": [
+     "k",
+     "i",
+     "g",
+     "s"
+    ],
+    "properties": {
+     "k": {
+      "type": "string",
+      "description": "Short label on the radar."
+     },
+     "n": {
+      "type": "string",
+      "description": "Longer name in the list."
+     },
+     "i": {
+      "type": "string",
+      "enum": [
+       "hier",
+       "grid",
+       "type",
+       "color",
+       "heur",
+       "nav",
+       "form",
+       "state",
+       "a11y",
+       "resp",
+       "copy",
+       "sys"
+      ]
+     },
+     "g": {
+      "type": "string",
+      "enum": [
+       "look",
+       "use",
+       "reach",
+       "words",
+       "system"
+      ]
+     },
+     "s": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 100
+     }
+    }
+   }
+  },
+  "screens": {
+   "type": "array",
+   "description": "The main task as a route of screens.",
+   "items": {
+    "type": "object",
+    "required": [
+     "t",
+     "w",
+     "st",
+     "p"
+    ],
+    "properties": {
+     "t": {
+      "type": "string",
+      "description": "Screen name."
+     },
+     "w": {
+      "type": "string",
+      "description": "Viewport or URL path, short."
+     },
+     "st": {
+      "type": "string",
+      "enum": [
+       "ok",
+       "warn",
+       "bad"
+      ]
+     },
+     "p": {
+      "type": "string",
+      "description": "One-line pain or note."
+     },
+     "shot": {
+      "type": "string",
+      "description": "Id of a shot of this screen."
+     }
+    }
+   }
+  },
+  "shots": {
+   "type": "array",
+   "description": "Screenshots with marks. src may be a file path (build_report.py embeds it) or a data URI; without src the template draws a placeholder frame with the marks.",
+   "items": {
+    "type": "object",
+    "required": [
+     "id",
+     "cap",
+     "w",
+     "h",
+     "marks"
+    ],
+    "properties": {
+     "id": {
+      "type": "string"
+     },
+     "src": {
+      "type": "string"
+     },
+     "cap": {
+      "type": "string",
+      "description": "Caption: screen name."
+     },
+     "url": {
+      "type": "string"
+     },
+     "vp": {
+      "type": "string",
+      "description": "Viewport, e.g. 390×844 phone."
+     },
+     "w": {
+      "type": "number",
+      "description": "Image width in px (aspect ratio)."
+     },
+     "h": {
+      "type": "number"
+     },
+     "marks": {
+      "type": "array",
+      "items": {
+       "type": "object",
+       "required": [
+        "n",
+        "x",
+        "y",
+        "w",
+        "h"
+       ],
+       "properties": {
+        "n": {
+         "type": "integer",
+         "description": "Opportunity id the mark belongs to."
+        },
+        "x": {
+         "type": "number",
+         "minimum": 0,
+         "maximum": 100,
+         "description": "Left, % of image width."
+        },
+        "y": {
+         "type": "number",
+         "minimum": 0,
+         "maximum": 100
+        },
+        "w": {
+         "type": "number",
+         "minimum": 0,
+         "maximum": 100
+        },
+        "h": {
+         "type": "number",
+         "minimum": 0,
+         "maximum": 100
+        },
+        "note": {
+         "type": "string"
+        }
+       }
+      }
+     }
+    }
+   }
+  },
+  "ops": {
+   "type": "array",
+   "minItems": 1,
+   "description": "Opportunity ids are 1-based positions in this array.",
+   "items": {
+    "type": "object",
+    "required": [
+     "t",
+     "l",
+     "ln",
+     "x",
+     "ev",
+     "sev",
+     "I",
+     "C",
+     "E"
+    ],
+    "properties": {
+     "t": {
+      "type": "string"
+     },
+     "l": {
+      "type": "string",
+      "enum": [
+       "hier",
+       "grid",
+       "type",
+       "color",
+       "heur",
+       "nav",
+       "form",
+       "state",
+       "a11y",
+       "resp",
+       "copy",
+       "sys"
+      ]
+     },
+     "ln": {
+      "type": "string",
+      "description": "Lens label shown in the table."
+     },
+     "x": {
+      "type": "string",
+      "enum": [
+       "opt",
+       "ex"
+      ],
+      "description": "opt = fix what is there; ex = rethink (new pattern, redesign, test)."
+     },
+     "ev": {
+      "type": "string",
+      "enum": [
+       "obs",
+       "hyp"
+      ]
+     },
+     "sev": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 4,
+      "description": "Nielsen severity: 1 cosmetic, 2 minor, 3 major, 4 critical."
+     },
+     "I": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 10
+     },
+     "C": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 10
+     },
+     "E": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 10
+     }
+    }
+   }
+  },
+  "plans": {
+   "type": "object",
+   "description": "Keyed by opportunity id; required for the top 3 by ICE.",
+   "additionalProperties": {
+    "type": "object",
+    "required": [
+     "h",
+     "m",
+     "t"
+    ],
+    "properties": {
+     "h": {
+      "type": "string"
+     },
+     "m": {
+      "type": "string"
+     },
+     "t": {
+      "type": "string"
+     }
+    }
+   }
+  },
+  "detail": {
+   "type": "object",
+   "description": "Keyed by opportunity id; one per opportunity.",
+   "additionalProperties": {
+    "type": "object",
+    "required": [
+     "why",
+     "steps",
+     "metric",
+     "effort",
+     "risk",
+     "where"
+    ],
+    "properties": {
+     "why": {
+      "type": "string"
+     },
+     "steps": {
+      "type": "array",
+      "minItems": 2,
+      "items": {
+       "type": "string"
+      }
+     },
+     "metric": {
+      "type": "string"
+     },
+     "effort": {
+      "type": "string"
+     },
+     "risk": {
+      "type": "string"
+     },
+     "where": {
+      "type": "array",
+      "minItems": 1,
+      "description": "Where the change happens. Each entry needs page or url, vp, and sel or shot.",
+      "items": {
+       "type": "object",
+       "properties": {
+        "page": {
+         "type": "string"
+        },
+        "url": {
+         "type": "string"
+        },
+        "vp": {
+         "type": "string",
+         "description": "Viewport, e.g. 390×844 or 'all'."
+        },
+        "sel": {
+         "type": "string",
+         "description": "CSS selector of the element."
+        },
+        "shot": {
+         "type": "string",
+         "description": "Shot id."
+        },
+        "mark": {
+         "type": "integer",
+         "description": "Opportunity id of the mark on that shot (defaults to this one)."
+        }
+       }
+      }
+     },
+     "change": {
+      "type": "array",
+      "description": "Current vs target values.",
+      "items": {
+       "type": "object",
+       "required": [
+        "prop",
+        "cur",
+        "tgt"
+       ],
+       "properties": {
+        "prop": {
+         "type": "string",
+         "description": "CSS property or design attribute."
+        },
+        "cur": {
+         "type": "string"
+        },
+        "tgt": {
+         "type": "string"
+        },
+        "token": {
+         "type": "string",
+         "description": "Design token for the target, when one exists."
+        },
+        "src": {
+         "type": "string",
+         "description": "How cur was measured."
+        }
+       }
+      }
+     },
+     "alt": {
+      "type": "array",
+      "items": {
+       "type": "string"
+      }
+     },
+     "rtype": {
+      "type": "string"
+     },
+     "thr": {
+      "type": "string"
+     },
+     "pm": {
+      "type": "string"
+     },
+     "copy": {
+      "type": "array",
+      "items": {
+       "type": "string"
+      }
+     },
+     "accept": {
+      "type": "array",
+      "items": {
+       "type": "string"
+      },
+      "description": "Acceptance criteria for the hands-off file. If missing, built from change, thr and metric."
+     },
+     "depends": {
+      "type": "array",
+      "items": {
+       "type": "string"
+      },
+      "description": "Task ids this one depends on, e.g. [\"T04\"]."
+     },
+     "verify": {
+      "type": "string",
+      "description": "How to check the task is done when it has no plan entry."
+     }
+    }
+   }
+  },
+  "tokens": {
+   "type": "array",
+   "description": "Design tokens observed or inferred; shown in the report and the hands-off file.",
+   "items": {
+    "type": "object",
+    "required": [
+     "name",
+     "value"
+    ],
+    "properties": {
+     "name": {
+      "type": "string"
+     },
+     "value": {
+      "type": "string"
+     },
+     "use": {
+      "type": "string"
+     }
+    }
+   }
+  },
+  "answers": {
+   "type": "array",
+   "items": {
+    "type": "object",
+    "required": [
+     "q",
+     "a"
+    ],
+    "properties": {
+     "q": {
+      "type": "string"
+     },
+     "a": {
+      "type": "string"
+     },
+     "skipped": {
+      "type": "boolean"
+     }
+    }
+   }
+  },
+  "sources": {
+   "type": "array",
+   "minItems": 1,
+   "items": {
+    "type": "object",
+    "required": [
+     "name",
+     "status"
+    ],
+    "properties": {
+     "name": {
+      "type": "string"
+     },
+     "note": {
+      "type": "string"
+     },
+     "status": {
+      "type": "string",
+      "enum": [
+       "ok",
+       "demo",
+       "no"
+      ]
+     }
+    }
+   }
+  },
+  "glossary": {
+   "type": "object",
+   "additionalProperties": {
+    "type": "object",
+    "required": [
+     "g",
+     "d"
+    ],
+    "properties": {
+     "g": {
+      "type": "string"
+     },
+     "d": {
+      "type": "string"
+     }
+    }
+   }
+  },
+  "rules": {
+   "type": "array",
+   "items": {
+    "type": "string"
+   },
+   "description": "Optional rules for whoever implements the plan; shown in the hands-off file. Defaults apply when missing."
+  }
+ }
+}
